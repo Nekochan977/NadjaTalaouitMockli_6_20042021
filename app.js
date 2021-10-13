@@ -10,7 +10,7 @@ fetch('./data.json')
     return res.json();
 })
 .then(function(data){
-    // console.log(data);
+    const photographers = data.photographers;
     
     //creation new objects
     let tags = {};
@@ -36,18 +36,46 @@ fetch('./data.json')
     // faire apparaître les tags dans la nav-barre
     dispTags(tags, document.querySelector('.nav-bar'));
 
-    //récupérer les éléments name dans data de l'array photographers
+    
 
-    const photographerName = data.photographers.map(photographer => `${photographer.name}`)
-    console.log(photographerName);
+    const dispPhotographers = (photographers, node)=>{
 
-    const dispNames = (photographerName, node) => {
-        photographerName.forEach(photographer => {
-            node.innerHTML += `<article class="photographer-card"> <h2 class="photographer-name">${photographer}</h2></article>`
+        
+        
+        let str = '';
+        photographers.forEach((p) =>{
+            let srcImage = `./images/samples/pPhotos${p.portrait}`
+            str += `
+        <article class="photographer__card">
+            <div class="photographer__img">
+                <img src=${srcImage}/>
+            </div>
+            <h2 class="photographer__name">
+                ${p.name}
+            </h2>
+            <p class="photographer__location">
+                ${p.city}, ${p.country}
+            </p>
+            <p class="photographer__devise">
+                ${p.tagline}
+            </p>
+            <p class="photographer__price">
+                ${p.price}€
+            </p>
+            <div class="photographer__tags">
+                ${p.tags}
+            </div>
+            
+        
+        </article>
+        `
         })
+        
+        node.innerHTML = str;
+
+        
     }
 
-    dispNames(photographerName, document.querySelector('.photographers-container'))
+    dispPhotographers(photographers, document.querySelector('.photographers__container'));
     
-  
 })
