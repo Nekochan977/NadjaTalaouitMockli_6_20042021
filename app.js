@@ -30,7 +30,7 @@ fetch('./data.json')
     // créer un nouveau content html pour les tags
     const dispTags = (tags, node) => {
         tags.forEach(tag => {
-            node.innerHTML += `<a href="#" class="tag-link"><span class ="tag-link__tag">#${tag}</span></a>`;
+            node.innerHTML += `<a href="#" class="tag__link"><span class ="tag__ink-tag">#${tag}</span></a>`;
         })  
     }
     // faire apparaître les tags dans la nav-barre
