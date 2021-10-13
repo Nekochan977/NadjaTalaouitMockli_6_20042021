@@ -1,10 +1,81 @@
+/* Basic styling */
+
+:root {
+    --first-color: #911C1C;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: DM Sans;
+}
+
+html {
+    font-size: 62.5%;
 }
 
 body {
     width: 90%;
     margin: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* HEADER */
+    /* LOGO */
+.logo {
+    position: absolute;
+    width: 15rem;
+    height: 3.75rem;
+    left: 2rem;
+    top: 4rem;
+}
+.logo-img {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+.nav-bar {
+    position: absolute;
+    width: 31.5rem;
+    top: 8.9rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.tag__link {
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    text-align: center;
+    color: var(--first-color);
+    border: 0.5px solid #C4C4C4;
+    padding: 0.1rem 0.5rem;
+    margin: 0.5rem;
+    border-radius: 11px;
+}
+
+/* MAIN */
+
+main {
+    margin-top: 15rem;
+}
+
+h1 {
+    position: absolute;
+    width: 11.9rem;
+    height: 1.8rem;
+    left: 23.4rem;
+    top: 5rem;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 18px;
+    text-align: center;
+    color: var(--first-color);
 }
