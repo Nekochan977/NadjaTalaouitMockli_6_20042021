@@ -2,32 +2,33 @@
 
 :root {
     --first-color: #911C1C;
+    --secondary-color: #D3573C;
 }
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: DM Sans;
 }
-
 html {
     font-size: 62.5%;
 }
-
 body {
     width: 90%;
     margin: auto;
 }
-
 a {
     text-decoration: none;
 }
+img {
+    width: 100%;
+    height: auto;
+}
 
+/*********************************** HEADER ***********************************/
 
+/* LOGO */
 
-/* HEADER */
-    /* LOGO */
 .logo {
     position: absolute;
     width: 15rem;
@@ -40,6 +41,8 @@ a {
     width: 100%;
     height: auto;
 }
+/* NAV-BAR */
+
 .nav-bar {
     position: absolute;
     width: 31.5rem;
@@ -60,22 +63,87 @@ a {
     border-radius: 11px;
 }
 
-/* MAIN */
+/*********************************** MAIN ***********************************/
 
 main {
-    margin-top: 15rem;
+    position: relative;
+    top: 15rem;
 }
 
 h1 {
     position: absolute;
     width: 11.9rem;
     height: 1.8rem;
-    left: 23.4rem;
-    top: 5rem;
+    left: 21.4rem;
+    top: -12rem;
     font-style: normal;
     font-weight: normal;
     font-size: 14px;
     line-height: 18px;
     text-align: center;
     color: var(--first-color);
+}
+
+/**************************** SECTION PHTOGRAPHERS CONTAINER ****************************/
+
+.photographers__container {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ARTICLE */
+
+.photographer__card {
+    width: 23rem;
+    height: 33rem;
+    margin: 3rem 0;
+    background-color: cadetblue;
+}
+.link__photographer {
+    align-content: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column; 
+}
+/* Images */
+.photographer__img {
+    position: relative;
+    margin: 3rem 0 1rem;
+    height: 14rem;
+    width: 14rem;
+    background-color: darkgray;
+    border-radius: 50%;
+}
+.photographer__img img {
+    border-radius: 50%;
+    position: relative;
+    /* top: 20px;
+    left: 18px; */
+}
+.photographer__name {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+    font-size: 2.4rem;
+}
+/* Text */
+
+.photographer__location {
+    text-align: center;
+    color: var(--first-color);
+    font-size: 1.3rem;
+}
+.photographer__devise, 
+.photographer__price {
+    text-align: center;
+    line-height: 1.7rem;
+}
+.photographer__devise {
+    font-size: 1rem;
+}
+.photographer__price {
+    font-size: 0.9rem;
 }
