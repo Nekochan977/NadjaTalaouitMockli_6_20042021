@@ -25,7 +25,7 @@ fetch("./data.json")
     // créer un nouveau content html pour les tags
     const dispTags = (tags, node) => {
       tags.forEach((tag) => {
-        node.innerHTML += `<a href="#" class="tag__links"><span class ="tag__link-tag">#${tag}</span></a>`;
+        node.innerHTML += `<a href="#" class="tag__link"><span class ="tag__link-tag">#${tag}</span></a>`;
       });
     };
     // faire apparaître les tags dans la nav-barre
@@ -36,7 +36,7 @@ fetch("./data.json")
       let str = "";
 
       photographers.forEach((p) => {
-        console.log(p.tags);
+        // console.log(p.tags);
 
         let srcImage = `./images/samples/pPhotos${p.portrait}`;
 
@@ -44,7 +44,7 @@ fetch("./data.json")
             <article class="photographer__card">
                 <a href="#" class="link__photographer">
                     <div class="photographer__img">
-                        <img src=${srcImage}/>
+                         <img src=${srcImage}/>
                     </div>
                     <h2 class="photographer__name">
                         ${p.name}
@@ -65,7 +65,7 @@ fetch("./data.json")
             `;
 
         p.tags.forEach((el) => {
-          console.log(el);
+          // console.log(el);
           str += `<a href="#" class="tag__link"><spanclass ="tag__link-tag">#${el}</spanclass></a>`;
         });
 
