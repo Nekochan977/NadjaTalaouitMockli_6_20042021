@@ -29,12 +29,12 @@ fetch("./data.json")
       });
     };
     // faire apparaître les tags dans la nav-barre
-    dispTags(tags, document.querySelector(".nav-bar"));
+    
     // console.log(tags);
 
     const dispPhotographers = (photographers, node) => {
       let str = "";
-
+      // console.log(photographers);
       photographers.forEach((p) => {
         // console.log(p.tags);
 
@@ -79,6 +79,29 @@ fetch("./data.json")
 
       node.innerHTML = str;
     };
+    
+    function filterPhotographers (arr, filter){
+      const arrayFiltered = arr.filter((el)=>{
+        return el.tags.includes(filter)
+      })
+      
+
+      return arrayFiltered;
+
+    } 
+    
+
+    document.querySelector('.nav-bar').addEventListener("click", (e) => {
+      
+      const filtre = e.target.textContent.slice(1);
+      const filteredPhotographers = filterPhotographers(photographers, filtre);
+      dispPhotographers(filteredPhotographers,document.querySelector('.photographers__container'))
+      
+    })
+    
+   
+    dispTags(tags, document.querySelector(".nav-bar"));
+
     dispPhotographers(
       photographers,
       document.querySelector(".photographers__container")
