@@ -3,12 +3,13 @@
 :root {
     --first-color: #911C1C;
     --secondary-color: #D3573C;
+    --third-color: #757575;
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: DM Sans;
+    font-family: 'Roboto', sans-serif;
 }
 html {
     font-size: 62.5%;
@@ -45,7 +46,7 @@ img {
 
 .nav-bar {
     position: absolute;
-    width: 31.5rem;
+    width: 34.5rem;
     top: 8.9rem;
     display: flex;
     flex-wrap: wrap;
@@ -97,10 +98,10 @@ h1 {
 /* ARTICLE */
 
 .photographer__card {
-    width: 23rem;
+    width: 28rem;
     height: 33rem;
-    margin: 3rem 0;
-    background-color: cadetblue;
+    margin: 1rem 0;
+    /* background-color: cadetblue; */
 }
 .link__photographer {
     align-content: center;
@@ -110,38 +111,43 @@ h1 {
     flex-direction: column; 
 }
 /* Images */
+
 .photographer__img {
     position: relative;
-    margin: 3rem 0 1rem;
 }
 .photographer__img img {
     position: relative;
-    height: 14rem;
-    width: 14rem;
+    height: 17rem;
+    width: 17rem;
     border-radius: 50%;
+    box-shadow: -8px 10px 53px -18px rgba(0,0,0,0.51);
+    -webkit-box-shadow: -8px 10px 53px -18px rgba(0,0,0,0.51);
+    -moz-box-shadow: -8px 10px 53px -18px rgba(0,0,0,0.51);
 }
-.photographer__name {
-    color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-    font-size: 2.4rem;
-}
+
 /* Text */
 
+.photographer__name {
+    color: var(--secondary-color);
+    margin: 2rem 0 0.5rem;
+    font-size: 3.2rem;
+    line-height: 3.7rem;
+    font-weight: 400;
+}
 .photographer__location {
     text-align: center;
     color: var(--first-color);
-    font-size: 1.3rem;
+    font-size: 1.7rem;
+    line-height: 1.7rem;
 }
 .photographer__devise, 
 .photographer__price {
     text-align: center;
-    line-height: 1.7rem;
-}
-.photographer__devise {
     font-size: 1rem;
+    line-height: 1.5rem;
 }
 .photographer__price {
-    font-size: 0.9rem;
+    color: var(--third-color);
 }
 .photographer__tags {
     margin: 1rem;
