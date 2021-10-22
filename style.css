@@ -113,16 +113,12 @@ h1 {
 .photographer__img {
     position: relative;
     margin: 3rem 0 1rem;
-    height: 14rem;
-    width: 14rem;
-    background-color: darkgray;
-    border-radius: 50%;
 }
 .photographer__img img {
-    border-radius: 50%;
     position: relative;
-    /* top: 20px;
-    left: 18px; */
+    height: 14rem;
+    width: 14rem;
+    border-radius: 50%;
 }
 .photographer__name {
     color: var(--secondary-color);
@@ -146,4 +142,8 @@ h1 {
 }
 .photographer__price {
     font-size: 0.9rem;
+}
+.photographer__tags {
+    margin: 1rem;
+    text-align: center;
 }
