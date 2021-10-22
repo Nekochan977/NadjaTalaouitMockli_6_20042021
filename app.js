@@ -38,13 +38,13 @@ fetch("./data.json")
       photographers.forEach((p) => {
         // console.log(p.tags);
 
-        let srcImage = `./images/samples/pPhotos${p.portrait}`;
+        let srcImage = `./images/samples/pPhotos/${p.portrait}`;
 
         str += `
             <article class="photographer__card">
                 <a href="#" class="link__photographer">
                     <div class="photographer__img">
-                         <img src=${srcImage}/>
+                         <img src="${srcImage}"/>
                     </div>
                     <h2 class="photographer__name">
                         ${p.name}
