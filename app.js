@@ -10,34 +10,32 @@ fetch("./data.json")
     //creation new tag objects
     let tags = {};
 
-    //récupérer les éléments tags dans data de l'array photographers
+    //get tags elements from array photographers
     data.photographers.forEach((el) => {
       //récupérer un de chaque tag
       el.tags.forEach(function (tag) {
-        // console.log(tag);
-        tags[tag] = 1; //revoir avec Nissim cette partie
+        tags[tag] = 1; 
       });
     });
 
     tags = Object.keys(tags);
-    // console.log(tags);
+    
 
-    // créer un nouveau content html pour les tags
+    // create new html content for the nav-bar
     const dispTags = (tags, node) => {
       tags.forEach((tag) => {
+        // creating html nodes
         node.innerHTML += `<a href="#" class="tag__link"><span class ="tag__link-tag">#${tag}</span></a>`;
       });
     };
-    // faire apparaître les tags dans la nav-barre
     
-    // console.log(tags);
 
+    // creation of photographers cards with dynamic html elements
     const dispPhotographers = (photographers, node) => {
       let str = "";
-      // console.log(photographers);
+      //creating photographers card images & html contents
       photographers.forEach((p) => {
-        // console.log(p.tags);
-
+        
         let srcImage = `./images/samples/pPhotos/${p.portrait}`;
 
         str += `
@@ -57,7 +55,7 @@ fetch("./data.json")
                     ${p.tagline}
                 </p>
                 <p class="photographer__price">
-                    ${p.price}€
+                    ${p.price}€/jour
                 </p> `;
         str += `
             <div class="photographer__tags">
@@ -65,7 +63,6 @@ fetch("./data.json")
             `;
 
         p.tags.forEach((el) => {
-          // console.log(el);
           str += `<a href="#" class="tag__link"><spanclass ="tag__link-tag">#${el}</spanclass></a>`;
         });
 
@@ -76,7 +73,7 @@ fetch("./data.json")
             </article>
             `;
       });
-
+      // creating html nodes
       node.innerHTML = str;
     };
     
@@ -84,13 +81,11 @@ fetch("./data.json")
       const arrayFiltered = arr.filter((el)=>{
         return el.tags.includes(filter)
       })
-      
 
       return arrayFiltered;
-
     } 
     
-
+    // filter photographers by click on nav-bar tags
     document.querySelector('.nav-bar').addEventListener("click", (e) => {
       
       const filtre = e.target.textContent.slice(1);
@@ -99,9 +94,10 @@ fetch("./data.json")
       
     })
     
-   
+     // adding tags into nav-bar
     dispTags(tags, document.querySelector(".nav-bar"));
 
+     // adding phtographers-cards into photographers__container
     dispPhotographers(
       photographers,
       document.querySelector(".photographers__container")
