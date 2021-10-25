@@ -20,13 +20,18 @@ body {
 }
 a {
     text-decoration: none;
+    color: #000;
 }
 img {
     width: 100%;
     height: auto;
 }
 
-/*********************************** HEADER ***********************************/
+/*********************************** Mobile first ***********************************/
+
+/*********
+ HEADER 
+ *********/
 
 /* LOGO */
 
@@ -58,20 +63,27 @@ img {
     line-height: 1.6rem;
     text-align: center;
     color: var(--first-color);
-    border: 0.5px solid #C4C4C4;
-    padding: 0.1rem 0.5rem;
     margin: 0.5rem;
+}
+.tag__link-tag {
+    border: 0.5px solid #C4C4C4;
+    padding: 0.5rem;
     border-radius: 11px;
 }
+.mainContent__link {
+    display: none;
+}
 
-/*********************************** MAIN ***********************************/
+/********
+ MAIN 
+ ********/
 
 main {
     position: relative;
     top: 15rem;
 }
 
-h1 {
+.main-title {
     position: absolute;
     width: 11.9rem;
     height: 1.8rem;
@@ -85,7 +97,9 @@ h1 {
     color: var(--first-color);
 }
 
-/**************************** SECTION PHTOGRAPHERS CONTAINER ****************************/
+/*******************************
+ SECTION PHTOGRAPHERS CONTAINER 
+ *******************************/
 
 .photographers__container {
     margin-top: 2rem;
@@ -101,7 +115,6 @@ h1 {
     width: 28rem;
     height: 33rem;
     margin: 1rem 0;
-    /* background-color: cadetblue; */
 }
 .link__photographer {
     align-content: center;
@@ -152,4 +165,82 @@ h1 {
 .photographer__tags {
     margin: 1rem;
     text-align: center;
+}
+
+/******************
+ PHTOGRAPHERS PAGE 
+ ******************/
+
+
+
+
+
+
+/*********************************** DESKTOP ***********************************/
+
+/* Merdia-queries */
+
+@media screen and (min-width:800px) and (max-width:1440px) {
+
+    /*********
+    HEADER 
+    *********/
+
+    #main-header {
+        margin-top: 6rem;
+        height: 10vh;
+        display: flex;
+        /* justify-content:space-evenly; */
+        align-items: center;
+    } 
+    .logo {
+        position: relative;
+        margin: 2rem 3rem 1rem 0;
+        top: unset;
+    }
+    /* NAV-BAR */
+
+    .nav-bar {
+        position: relative;
+        width: 70.5rem;
+        margin: 1rem 5rem;
+        height: 3.25rem;
+        flex-wrap: nowrap;
+        top: unset;
+    }
+    .mainContent__link {
+        position: absolute;
+        top: 5%;
+        right: 49%;
+        font-size: 1.7rem;
+        background: #DB8876;
+        border-radius: 5px;
+        padding: 0.5rem;
+    }
+
+    /********
+    MAIN 
+    ********/
+
+    main {
+        top: unset;
+    }
+
+    .main-title {
+        width: 21.9rem;
+        height: 1.8rem;
+        left: 100.4rem;
+        top: -4rem;
+        font-size: 2.6rem;
+    }
+    .photographers__container {
+        display: grid;
+        grid-template-columns: repeat(3, 380px);
+        grid-template-rows: repeat(2, 400px);
+        justify-items: center;
+    }
+    .photographer__card {
+        margin: 1rem;
+        
+    }
 }
