@@ -6,8 +6,17 @@ fetch("./data.json")
   })
   .then(function (data) {
     const photographers = data.photographers;
+    //-------adding div on scroll event
+    const mainAccess = document.querySelector('.mainContent__link');
+    
+    window.addEventListener("scroll", () => {
+      // console.log(window.scrollY);
+      if (window.scrollY >= 60) {
+        mainAccess.style.display = "unset";
+      }
+    })
 
-    //creation new tag objects
+    //--------creation new tag objects
     let tags = {};
 
     //get tags elements from array photographers
@@ -21,7 +30,7 @@ fetch("./data.json")
     tags = Object.keys(tags);
     
 
-    // create new html content for the nav-bar
+    //---------create new html content for the nav-bar
     const dispTags = (tags, node) => {
       tags.forEach((tag) => {
         // creating html nodes
@@ -30,10 +39,10 @@ fetch("./data.json")
     };
     
 
-    // creation of photographers cards with dynamic html elements
+    //--------creation of photographers cards with dynamic html elements
     const dispPhotographers = (photographers, node) => {
       let str = "";
-      //creating photographers card images & html contents
+      //-------creating photographers card images & html contents
       photographers.forEach((p) => {
         
         let srcImage = `./images/samples/pPhotos/${p.portrait}`;
@@ -73,10 +82,11 @@ fetch("./data.json")
             </article>
             `;
       });
-      // creating html nodes
+      //-----adding html nodes
       node.innerHTML = str;
     };
     
+    //-----Function for filtering photographers
     function filterPhotographers (arr, filter){
       const arrayFiltered = arr.filter((el)=>{
         return el.tags.includes(filter)
@@ -85,7 +95,7 @@ fetch("./data.json")
       return arrayFiltered;
     } 
     
-    // filter photographers by click on nav-bar tags
+    //------adding event to the nav-bar to filter the photographers with same tags
     document.querySelector('.nav-bar').addEventListener("click", (e) => {
       
       const filtre = e.target.textContent.slice(1);
@@ -94,10 +104,10 @@ fetch("./data.json")
       
     })
     
-     // adding tags into nav-bar
+     //------adding tags into nav-bar
     dispTags(tags, document.querySelector(".nav-bar"));
 
-     // adding phtographers-cards into photographers__container
+     //------adding phtographers-cards into photographers__container
     dispPhotographers(
       photographers,
       document.querySelector(".photographers__container")
