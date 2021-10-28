@@ -1,4 +1,4 @@
-// Getting JSON data
+//----- Getting JSON data
 
 fetch("./data.json")
   .then(function (res) {
@@ -6,15 +6,18 @@ fetch("./data.json")
   })
   .then(function (data) {
     const photographers = data.photographers;
-    //-------adding div on scroll event
-    const mainAccess = document.querySelector('.mainContent__link');
     
+    const mainAccess = document.querySelector(".mainContent__link");
+
+    //-------adding div on scroll event
     window.addEventListener("scroll", () => {
       // console.log(window.scrollY);
-      if (window.scrollY >= 60) {
+      if (window.scrollY >= 10) {
         mainAccess.style.display = "unset";
+      } else {
+        mainAccess.style.display = "none";
       }
-    })
+    });
 
     //--------creation new tag objects
     let tags = {};
@@ -23,12 +26,11 @@ fetch("./data.json")
     data.photographers.forEach((el) => {
       //récupérer un de chaque tag
       el.tags.forEach(function (tag) {
-        tags[tag] = 1; 
+        tags[tag] = 1;
       });
     });
 
     tags = Object.keys(tags);
-    
 
     //---------create new html content for the nav-bar
     const dispTags = (tags, node) => {
@@ -37,19 +39,17 @@ fetch("./data.json")
         node.innerHTML += `<a href="#" class="tag__link"><span class ="tag__link-tag">#${tag}</span></a>`;
       });
     };
-    
 
     //--------creation of photographers cards with dynamic html elements
     const dispPhotographers = (photographers, node) => {
       let str = "";
       //-------creating photographers card images & html contents
       photographers.forEach((p) => {
-        
         let srcImage = `./images/samples/pPhotos/${p.portrait}`;
 
         str += `
             <article class="photographer__card">
-                <a href="#" class="link__photographer">
+                <a href="./photographerPage.html?id=${p.id}" class="link__photographer">
                     <div class="photographer__img">
                          <img src="${srcImage}"/>
                     </div>
@@ -72,7 +72,7 @@ fetch("./data.json")
             `;
 
         p.tags.forEach((el) => {
-          str += `<a href="#" class="tag__link"><spanclass ="tag__link-tag">#${el}</spanclass></a>`;
+          str += `<a href="#" class="tag__link"><span class="tag__link-tag">#${el}</span></a>`;
         });
 
         str += `
@@ -85,31 +85,35 @@ fetch("./data.json")
       //-----adding html nodes
       node.innerHTML = str;
     };
-    
+
     //-----Function for filtering photographers
-    function filterPhotographers (arr, filter){
-      const arrayFiltered = arr.filter((el)=>{
-        return el.tags.includes(filter)
-      })
+    function filterPhotographers(arr, filter) {
+      const arrayFiltered = arr.filter((el) => {
+        return el.tags.includes(filter);
+      });
 
       return arrayFiltered;
-    } 
-    
+    }
+
     //------adding event to the nav-bar to filter the photographers with same tags
-    document.querySelector('.nav-bar').addEventListener("click", (e) => {
-      
+    document.querySelector(".nav-bar").addEventListener("click", (e) => {
       const filtre = e.target.textContent.slice(1);
       const filteredPhotographers = filterPhotographers(photographers, filtre);
-      dispPhotographers(filteredPhotographers,document.querySelector('.photographers__container'))
-      
-    })
-    
-     //------adding tags into nav-bar
+      dispPhotographers(
+        filteredPhotographers,
+        document.querySelector(".photographers__container")
+      );
+    });
+
+    //------adding tags into nav-bar
     dispTags(tags, document.querySelector(".nav-bar"));
 
-     //------adding phtographers-cards into photographers__container
+    //------adding phtographers-cards into photographers__container
     dispPhotographers(
       photographers,
       document.querySelector(".photographers__container")
     );
+    
+    const photographerId = window.location.search.split("=")[1];
   });
+  
