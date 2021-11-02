@@ -10,7 +10,7 @@ new DataReader().getData().then((data) => {
         const x = data.photographers.filter(photographer => photographer.id == id);
         const photographerInfo = document.querySelector('.photographer__info');
         const photographeHeader = document.createElement('div');
-        photographeHeader.className += "photographer__header"
+        photographeHeader.className += "photographer__header";
         // html template for photographer info
         let info = `
             <h1>${x[0].name}</h1>
@@ -34,9 +34,19 @@ new DataReader().getData().then((data) => {
     }
     //Script section for homepage
     else {
+        //storing tags
+        let x =[];
+        
+        //Section Photograher Cards
         data.photographers.map(photographe => {
             const photographersContainer = document.querySelector('.photographers__container');
             const photographerCard = document.createElement('article');
+            //adding tags to variable x
+            photographe.tags.map(el =>{
+                if(x.includes(el) != true){
+                x.push(el);
+                } 
+            });
             
             //html template for article
             let str =`
@@ -61,13 +71,19 @@ new DataReader().getData().then((data) => {
                 <a class="tag__link">${photographe.tags.map(tag =>
                     `<span class="tag__link-tag">${tag}</span>`).join(" ")}</a>
             `;
+
             photographersContainer.appendChild(photographerCard);
-            photographerCard.innerHTML= str;
+            photographerCard.innerHTML += str;
         })
+        const dispTags =(x, node) => {
+            x.forEach((tag)=>{
+                node.innerHTML += `<a href="#" class="tag__link"><span class ="tag__link-tag">#${tag}</span></a>`
+            })
+        };
+        dispTags(x, document.querySelector(".nav-bar"));
     }
 })
 .catch(() => {
     alert("Problème d'accès aux données")
 }
 );
-
