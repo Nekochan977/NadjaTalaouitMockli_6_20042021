@@ -23,7 +23,6 @@ new DataReader().getData().then((data) => {
                 
         //Section Photograher Cards
         data.photographers.map(photographe => {
-            const photographerCard = document.createElement('article');
             const photographersContainer = document.querySelector('.photographers__container');
             const photographerCard = document.createElement('article');
             //adding tags to variable x
