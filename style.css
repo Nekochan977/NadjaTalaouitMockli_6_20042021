@@ -171,7 +171,14 @@ main {
  PHTOGRAPHERS PAGE 
  ******************/
 
-
+.photographer__info {
+    background: lightgray;
+    margin-top: 10rem;
+}
+.photographer__id {
+    left: 103rem;
+    top: 2.5rem;
+}
 
 
 

@@ -69,8 +69,7 @@ new DataReader().getData().then((data) => {
         document.querySelector('.nav-bar').addEventListener("click", (e)=> {
             const filter = e.target.textContent.slice(1);
             const articles = document.querySelectorAll('article');
-            articles.forEach((article)=>{
-                console.log(article.lastElementChild.textContent);  
+            articles.forEach((article)=>{ 
                 if (article.lastElementChild.textContent.includes(filter) == true){
                     article.style.display ="";
                 }else{
