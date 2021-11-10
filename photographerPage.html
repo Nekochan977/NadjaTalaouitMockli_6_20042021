@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
     <title>Photographer Page</title>
 </head>
 <body>
@@ -24,17 +25,26 @@
     <main>
             
         <!--PHOTOGRAPHER INFO SECTION-->
-        <section class="photographer__info">          
+        <section class="photographer__id__section">          
         </section>
         <!--END OF PHOTOGRAPHER INFO SECTION-->
+        <!--FILTER-->
+        <div class="listbox_container">
+            <p id="expend_listbox">Trier par</p>
+            <div class="filter_wrapper">
+                <button aria-haspopup="listbox" aria-labelledby="expend_listbox" class="listbox__btn">Popularité<i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up" aria-hidden="true"></i></button>
+                <ul id="filter_list" tabindex="-1" role="listbox" aria-labelledby="expend_listbox">
+                    <li id="filter_by_pop" role="option" class="hidden">Popularité </li>
+                    <li id="filter_by_date" role="option" class="hidden">Date</li>
+                    <li id="filter_by_title" role="option" class="hidden">Titre</li>
+                </ul>
+            </div><!--end of filter wrapper-->
+        </div> <!--End of filter container-->
+        <!--END OF FILTER-->
 
         <!--GALLERY SECTION-->
-        <section class="gallery">
-    
-                
-                
-        </section>
-        <!--GALLERY SECTION-->
+        <section class="gallery"></section>
+        <!--END OF GALLERY SECTION-->
         </main>
         <!--END OF MAIN CONTENT-->
     <script type="module" src="js/app.js"></script>
