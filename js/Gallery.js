@@ -2,7 +2,6 @@
 
 export default class Gallery{
     displayGallery(medias,photographerId){
-        console.log(medias);
         console.log(photographerId[0].name);
         const photographerMedias = medias.filter(
             (media) => media.photographerId == photographerId[0].id

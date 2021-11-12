@@ -190,11 +190,13 @@ main {
 .listbox_container {
     display: flex;
 }
-
+/* .listbox__btn{
+    z-index: 1;
+} */
 .hidden {
     display: none;
 }
-.fa-chevron-up::before {
+.fa-chevron-up {
     display: none;
 }
 .photo__card {
