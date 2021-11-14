@@ -30,37 +30,12 @@ export default class PhotographersPage {
               .map((tag) => `<span class="tag__link-tag">#${tag}</span>`)
               .join(" ")}
             </a>
-            <button class="contact">Contactez-moi</button> 
+            <button class="contact">Contactez-moi</button>
             `;
     photographerInfo.appendChild(photographeHeader);
     photographeHeader.innerHTML = info;
-    
+
 
     new Gallery().displayGallery(data.medias, photographerId);
-
-    //dropdown menu
-    const openDropdown = document.querySelector(".listbox__btn");
-    const closeDropdown = document.getElementById("filter_by_pop");
-    const filterOptions = document.querySelectorAll(".hidden");
-
-    if (openDropdown) {
-      openDropdown.addEventListener("click", () => {
-        openDropdown.style.display = 'none';
-        filterOptions.forEach((option)=>{
-          
-          option.style.display = 'block';
-          closeDropdown.style.display ="block"
-        })
-      });
-    }
-    if (closeDropdown) {
-      closeDropdown.addEventListener("click", () => {
-        openDropdown.style.display = 'block';
-        filterOptions.forEach((option)=>{
-          option.style.display = 'none';
-
-        })
-      });
-    }
   }
 }
