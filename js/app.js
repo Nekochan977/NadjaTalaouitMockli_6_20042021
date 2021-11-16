@@ -13,6 +13,7 @@ new DataReader().getData().then((data) => {
     else {
         //storing tags
         let tagsList =[];
+        const mainAccess = document.querySelector('.mainContent__link');
     
         //inner html for tags
         const dispTags =(tagsList, node) => {
@@ -20,11 +21,21 @@ new DataReader().getData().then((data) => {
                 node.innerHTML += `<a href="#" class="tag__link"><span class ="tag__link-tag">#${tag}</span></a>`
             })
         };
+         //-------adding div on scroll event
+        window.addEventListener("scroll", () => {
+        // console.log(window.scrollY);
+            if (window.scrollY >= 10) {
+            mainAccess.style.display = "unset";
+            } else {
+            mainAccess.style.display = "none";
+            }
+        });
                 
         //Section Photograher Cards
         data.photographers.map(photographe => {
             const photographersContainer = document.querySelector('.photographers__container');
             const photographerCard = document.createElement('article');
+            photographerCard.className += "photographer__card"
             //adding tags to variable x
             photographe.tags.map(el =>{
                 if(tagsList.includes(el) != true){
@@ -53,8 +64,9 @@ new DataReader().getData().then((data) => {
                 <p class="photographer__price">
                      ${photographe.price}€/jour
                 </p>
-                <a class="tag__link">${photographe.tags.map(tag =>
-                    `<span class="tag__link-tag">${tag}</span>`).join(" ")}</a>
+                <div class="tag_container">${photographe.tags.map(tag =>
+                    `<a class="tag__link"><span class="tag__link-tag">#${tag}</span></a>`).join(" ")}
+                </div>
             `;
 
             photographersContainer.appendChild(photographerCard);
