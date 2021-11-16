@@ -32,6 +32,12 @@ export default class Gallery{
             this.displayGallery(photographerMedias.sort((a, b) => {return b.date >= a.date}), photographerId);
           })
         }
+        if (title) {
+          title.addEventListener("click", () => {
+            purge();
+            this.displayGallery(photographerMedias.sort((a, b) => {return b.title >= a.title}), photographerId);
+          })
+        }
       }
         //Filters the selected photographer's gallery 
       //photographer's gallery
@@ -66,6 +72,7 @@ export default class Gallery{
         //dropdown menu
         const openDropdown = document.querySelector(".fa-chevron-down");
         const closeDropdown = document.querySelector(".fa-chevron-up");
+        const filterListbox = document.getElementById("filter_listbox");
         const filterOptions = document.querySelectorAll(".hidden");
 
         if (openDropdown) {
@@ -73,7 +80,8 @@ export default class Gallery{
             openDropdown.style.display = 'none';
             filterOptions.forEach((option)=>{
               option.style.display = 'block';
-              closeDropdown.style.display ="block"
+              closeDropdown.style.display ="inline-block"
+              filterListbox.style.display = 'block';
             })
           });
         }
@@ -82,12 +90,13 @@ export default class Gallery{
             openDropdown.style.display = 'block';
             filterOptions.forEach((option)=>{
               option.style.display = 'none';
+              filterListbox.style.display = 'none';
             })
           });
         }
 
       });
-      
+    
     filteredGallery()
   
     }
