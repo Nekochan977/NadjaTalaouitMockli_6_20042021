@@ -29,16 +29,16 @@
         </section>
         <!--END OF PHOTOGRAPHER INFO SECTION-->
         <!--FILTER-->
+        <!--filter container-->
         <div class="listbox_container">
-            <p>Trier par</p>
-            <div id="expend_listbox">
-                <button aria-haspopup="listbox" class="listbox__btn">Popularité<i class="fas fa-chevron-down"></i></button>
-                <ul id="filter_listbox" tabindex="-1" role="listbox" aria-labelledby="expend_listbox">
-                    <li id="filter_by_pop" role="option" class="hidden">Popularité<i class="fas fa-chevron-up"></i></li>
-                    <li id="filter_by_date" role="option" class="hidden">Date</li>
-                    <li id="filter_by_title" role="option" class="hidden">Titre</li>
-                </ul>
-            </div><!--end of filter wrapper-->
+            <label for="filter_listbox">Trier par</label>
+            <!--filter wrapper-->
+            <select name="filter" id="listbox">
+                <option value="popularité" >Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i></option>
+                <option value="date">Date</option>
+                <option value="titre">Titre</option>
+            </select>
+            <!--end of filter wrapper-->
         </div> <!--End of filter container-->
         <!--END OF FILTER-->
 
