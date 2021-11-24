@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
         <div class="listbox_container">
             <label for="filter_listbox">Trier par</label>
             <!--filter wrapper-->
-            <select name="filter" id="listbox">
+            <select name="filter" id="listbox" class="listbox__btn">
                 <option value="popularité" >Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i></option>
                 <option value="date">Date</option>
                 <option value="titre">Titre</option>
@@ -45,7 +45,38 @@
         <!--GALLERY SECTION-->
         <section class="gallery"></section>
         <!--END OF GALLERY SECTION-->
-        </main>
+
+        <!--CONTACT MODAL-->
+        <div class="bground-contact">
+            <div class="content">
+                <h1 class="form-header"></h1>
+                <div class="close-contactForm"><i class="fas fa-times"></i></div>
+                <div role="dialog" id="modal-div" class="modal-body">
+                    
+                    <form action="./photographerPage.html" method="post" id="contact-form">
+                        <div id="prenom-div" class="formData">
+                            <label for="prénom">Prénom</label>
+                            <input class="text-control" type="text" name="prénom" id="prenom" required> 
+                        </div>
+                        <div id="nom-div" class="formData">
+                            <label for="nom">Nom</label>
+                            <input class="text-control" type="text" name="nom" id="nom" required>
+                        </div>
+                        <div id="email-div" class="formData">
+                            <label for="email">email</label>
+                            <input class="text-control" type="email" name="email" id="email" required>
+                        </div>
+                        <div id="message-div" class="formData">
+                            <label for="message">Votre message</label>
+                            <input class="text-control" type="text" name="message" id="message" required>
+                        </div>
+                        
+                        <button id="submit-btn" class="btn" type="submit">Envoyer</button>
+                    </form>
+                </div> <!--End of modal-div--> 
+            </div> <!--End of div content-->  
+        </div> <!--END OF CONTACT MODAL-->
+     </main>
         <!--END OF MAIN CONTENT-->
     <script type="module" src="js/app.js"></script>
 </body>
