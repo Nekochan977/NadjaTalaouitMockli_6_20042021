@@ -1,17 +1,19 @@
 "use strict";
 
 import Gallery from "./Gallery.js";
-
+import { ContactModal } from "./Contact.js";
 export default class PhotographersPage {
   displayPhotographers(data) {
     const id = window.location.search.split("id=")[1];
     const photographerId = data.photographers.filter(
       (photographer) => photographer.id == id
     );
-    const photographerInfo = document.querySelector(".photographer__id__section");
+    const photographerInfo = document.querySelector(
+      ".photographer__id__section"
+    );
     const photographeHeader = document.createElement("div");
-    photographeHeader.className += "photographer__header";
 
+    photographeHeader.className += "photographer__header";
     // html template for photographer info
     let info = `
             <h1 class ="photographer__name">${photographerId[0].name}</h1>
@@ -30,12 +32,12 @@ export default class PhotographersPage {
               .map((tag) => `<span class="tag__link-tag">#${tag}</span>`)
               .join(" ")}
             </a>
-            <button class="contact">Contactez-moi</button>
+            <button class="btn contact">Contactez-moi</button>
             `;
     photographerInfo.appendChild(photographeHeader);
     photographeHeader.innerHTML = info;
 
-
+    ContactModal(photographerId);
     new Gallery().displayGallery(data.medias, photographerId);
   }
 }
