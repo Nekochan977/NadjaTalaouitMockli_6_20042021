@@ -57,6 +57,7 @@ img {
 .nav-bar {
     position: absolute;
     width: 34.5rem;
+    height: 8vh;
     top: 8.9rem;
     display: flex;
     flex-wrap: wrap;
@@ -167,14 +168,19 @@ main {
 .photographer__price {
     color: var(--third-color);
 }
+.tag_container {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
+}
 .photographer__tags {
     margin: 1rem;
     text-align: center;
 }
 
-/******************
- PHTOGRAPHERS PAGE 
- ******************/
+/*************************
+ SELECTED PHTOGRAPHER PAGE 
+ ************************/
 
 .photographer__info {
     margin: 3rem 0;
@@ -195,7 +201,12 @@ main {
 } */
 .hidden {
     display: none;
+    /* background: var(--first-color);
+    color: #fff;
+    padding: 0.5rem;
+    border-radius: 5px; */
 }
+
 .fa-chevron-up {
     display: none;
 }
@@ -224,7 +235,124 @@ main {
     color: red;
     cursor: pointer;
 }
+.contact, 
+.listbox__btn {
+        padding: 1rem;
+        border-radius: 5px;
+        background: var(--first-color);
+        color: #fff;
+        border: none;
+        font-size: 1.5rem;
+        
+}
+.contact {
+    float: right;
+    position: absolute;
+    top: 3rem;
+    left: 37rem; 
+    display: block;
+}
+/*Modal*/
+.bground-contact {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(26, 39, 156, 0.4);
+  }
+  .content {
+    margin: 5% auto;
+    width: 100%;
+    max-width: 500px;
+    animation-name: modalopen;
+    animation-duration: var(--modal-duration);
+    background: #DB8876;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    padding-top: 10px;
+  }
+  .form-header{
+    font-weight: 400;
+    font-size: 3.4rem;
+    padding: 1rem 1rem 1rem 4rem;
+  }
+ 
+  .modal-body {
+    padding: 15px 8%;
+    margin: 15px auto;
+  }
+  .close-contactForm {
+    display: block;
+    padding: 1rem;
+    width: 4rem;
+    position: absolute;
+    height: 4rem;
+    font-size: 2rem;
+    right: 3rem;
+    top: 2rem;
+  }
+  label {
+    font-family: var(--font-default);
+    font-size: 1.7rem;
+    font-weight: normal;
+    display: inline-block;
+    margin: 1rem 0;;
+  }
+  input {
+    padding: 8px;
+    border: 0.8px solid #ccc;
+    outline: none;
+  }
+  .text-control {
+    margin: 0;
+    padding: 8px;
+    width: 100%;
+    border-radius: 8px;
+    font-size: 20px;
+    height: 48px;
+  }
+  #message {
+      height: 12rem;
+  }
+  #submit-btn {
+      position: unset;
+      margin-top: 1rem;
+  }
+  .thankyou-message {
+      display: none;
+  }
 
+  /* Class error for message added by JS*/
+
+.formData[data-error]::after {
+    content: attr(data-error);
+    font-size: 12px;
+    color: #e54858;
+    display: block;
+    margin: 7px 0;
+    text-align: right;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .formData[data-error-visible="true"]::after {
+    opacity: 1;
+  }
+  .formData[data-error-visible="true"] .text-control {
+    border: 2px solid #e54858;
+  }
+  
+  input[data-error]::after {
+      content: attr(data-error);
+      font-size: 0.4em;
+      color: red;
+  }
+  /* End of class error for message added by JS*/
 
 
 
@@ -259,6 +387,7 @@ main {
         height: 3.25rem;
         flex-wrap: nowrap;
         top: unset;
+        justify-content: space-evenly;
     }
     .mainContent__link {
         position: absolute;
@@ -269,6 +398,7 @@ main {
         border-radius: 5px;
         padding: 0.5rem;
     }
+
 
     /********
     MAIN 
@@ -292,16 +422,15 @@ main {
         justify-items: center;
     }
     .photographer__card {
-        margin: 1rem;
-        
+        margin: 1rem;  
     }
 
-     /********
-    PHOTOGRAPHER PAGE 
-    ********/
+     /*************************
+    SELECTED PHOTOGRAPHER PAGE 
+    *************************/
     .photographer__id__section{
         margin: 3rem 0;
-        height: 52vh;
+        height: 25rem;
         padding: 1rem;
         background: rgba(223, 221, 221, 0.199);
         border-radius: 5px;
@@ -327,11 +456,13 @@ main {
     }
     .tag__link{
         margin: unset;
+        align-self: center;
     }
     /* .tag__link-tag{
         background-color: #ffff;
     } */
-    .contact {
+    .btn, 
+    .listbox__btn {
         padding: 1.5rem;
         border-radius: 5px;
         background: var(--first-color);
@@ -342,6 +473,31 @@ main {
         position: absolute;
         top: 3rem;
         left: 37rem;
+    }
+    .listbox_container {
+        font-size: 1.5rem;
+    }
+    .listbox_container>p{
+        margin-right: 1rem;
+        padding-top: 1rem;
+    }
+    .listbox__btn {
+        display: flex;
+        position: unset;
+        top: unset;
+        left: unset;
+        padding: 1rem;
+    }
+    #filter_listbox {
+        display: none;
+        background: var(--first-color);
+        color: #fff;
+        padding: 0.5rem;
+        border-radius: 5px;
+    }
+    
+    .fa-chevron-down {
+        margin-left: 0.5rem;
     }
     .gallery{
         display: grid;
