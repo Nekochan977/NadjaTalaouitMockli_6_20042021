@@ -9,7 +9,6 @@ export function filterBy(e) {
     let list = document.getElementById("photos-list");
     let b = list.childNodes;
     //returns nodeList of articles
-    console.log(b);
     
     switch (filter) {
       case "popularité":
@@ -27,8 +26,8 @@ export function filterBy(e) {
             /* check if the next item should
             switch place with the current item: */
             if (
-              parseInt(b[i].lastElementChild.childNodes[5].innerHTML) <
-              parseInt(b[i + 1].lastElementChild.childNodes[5].innerHTML)
+              parseInt(b[i].lastElementChild.childNodes[5].childNodes[1].innerHTML) <
+              parseInt(b[i + 1].lastElementChild.childNodes[5].childNodes[1].innerHTML)
             ) {
               /* if next item is lower 
               than current item, mark as a switch
