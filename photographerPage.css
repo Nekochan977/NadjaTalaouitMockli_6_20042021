@@ -18,6 +18,9 @@ body {
   width: 90%;
   margin: auto;
 }
+body, html {
+  height: 100%;
+}
 a {
   text-decoration: none;
   color: #000;
@@ -58,6 +61,7 @@ img {
 .logo-img {
   position: relative;
   width: 100%;
+  max-width: 13rem;
   height: auto;
 }
 
@@ -156,6 +160,7 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: top;
 }
 .video {
   border-radius: 5px;
@@ -191,8 +196,22 @@ main {
   color: var(--first-color);
   cursor: pointer;
 }
-.total__likes {
+.photo__likes {
   margin-right: 1rem;
+}
+.likesAndPrice {
+  position: fixed;
+  bottom: 0;
+  right: 10rem;
+  width: 24rem;
+  margin: 0 auto;
+  border-radius: 5px;
+  font-size: 1.7rem;
+  height: 3rem;
+  background: var(--secondary-color);
+}
+.total__likes {
+  padding: 0.5rem;
 }
 
 .contact,
@@ -205,18 +224,18 @@ main {
   font-size: 1.5rem;
 }
 #listbox {
-    background: #911c1c;
-    outline: none;
-    border: none;
-    border-radius: 12px;
-    color: #fff;
-    position: relative;
-  }
-option::before:after{
-      border-radius: 10px;
-      width: 7rem;
-      line-height: 1rem;
-  }
+  background: #911c1c;
+  outline: none;
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  position: relative;
+}
+option::after {
+  border-radius: 10px;
+  width: 7rem;
+  line-height: 1rem;
+}
 .contact {
   position: fixed;
   left: 34.47%;
@@ -329,12 +348,16 @@ input {
   max-height: 70%;
   max-width: 70%;
   margin: 0 auto;
-  width: 26rem;
+  width: 25rem;
   height: 34rem;
   position: absolute;
-  top: 61%;
+  top: 28%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+.slides > img {
+  border-radius: 5px;
+  margin: 0 auto;
 }
 .close-lightbox {
   height: 2rem;
@@ -463,7 +486,7 @@ input[data-error]::after {
     left: 37rem;
   } 
   */
-  
+
   .listbox_container {
     font-size: 1.5rem;
     margin: 1rem;
@@ -512,7 +535,7 @@ input[data-error]::after {
     /* overflow: hidden; */
   }
   .photo__description {
-      width: 33rem;
+    width: 33rem;
   }
   .like {
     position: relative;
