@@ -8,6 +8,7 @@ export default class PhotographersPage {
     const photographerId = data.photographers.filter(
       (photographer) => photographer.id == id
     );
+    console.log(data.photographers);
     const photographerInfo = document.querySelector(
       ".photographer__id__section"
     );
@@ -39,5 +40,48 @@ export default class PhotographersPage {
 
     ContactModal(photographerId);
     new Gallery().displayGallery(data.medias, photographerId);
+         //get all likes
+    //queryslectors & variables
+    //console.log(photographerId[0].price);
+    const likesAndPriceDiv = document.querySelector(".likesAndPrice");
+    const likeBtn = document.querySelectorAll(".like");
+    let likesAndPrice = "";
+    let mediaLikes = [];
+    let totalLikes = [];
+    
+    function getAllLikes(){
+      for(let i = 0; i < document.querySelectorAll(".photo__likes").length; i++){
+        mediaLikes.push(parseInt(document.querySelectorAll(".photo__likes")[i].firstChild.data))
+        totalLikes = mediaLikes.reduce((a,b)=>{return a + b});
+        }
+      }
+      
+    getAllLikes()
+
+    console.log(totalLikes);
+
+    function incrementLike(e) {
+      //console.log(document.querySelectorAll(".photo__likes"));
+      for(let i = 0; i < document.querySelectorAll(".photo__likes").length; i++){
+        mediaLikes = parseInt(document.querySelectorAll(".photo__likes")[i].firstChild.data);
+        mediaLikes = isNaN(mediaLikes) ? 0 : mediaLikes;
+        if(e.curentTarget=="click") {
+          mediaLikes++
+        }
+        document.querySelectorAll(".photo__likes")[i].firstChild.data = mediaLikes;
+        totalLikes = mediaLikes;
+        console.log(totalLikes);
+      }
+    }
+    likeBtn.forEach((btn)=>{
+      btn.addEventListener("click", (e)=>{
+        incrementLike(e);
+        e.currentTarget.previousElementSibling.firstChild.data++;
+        console.log(totalLikes)
+      })
+    });
+    
+    likesAndPrice = `<p class="total__likes">${totalLikes}<i class="fas fa-heart"></i></p> <p class="price">${photographerId[0].price}€/jour</p>`;
+    likesAndPriceDiv.innerHTML += likesAndPrice;
   }
 }
