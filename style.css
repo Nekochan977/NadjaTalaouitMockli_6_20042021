@@ -178,222 +178,6 @@ main {
     text-align: center;
 }
 
-/*************************
- SELECTED PHTOGRAPHER PAGE 
- ************************/
-
-.photographer__info {
-    margin: 3rem 0;
-}
-.photographer__id {
-    height: 12rem;
-    width: 12rem;
-    float: right;
-    bottom: 6rem;
-}
-/*Gallery section*/
-/*Filter*/
-.listbox_container {
-    display: flex;
-}
-/* .listbox__btn{
-    z-index: 1;
-} */
-.hidden {
-    display: none;
-    /* background: var(--first-color);
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 5px; */
-}
-
-.fa-chevron-up {
-    display: none;
-}
-.photo__card {
-    height: 28rem;
-    width: 28rem;
-}
-.gallery__photo {
-    height: 24rem;
-    width: 42rem;
-    padding: 2rem;
-    border-radius: 5px;
-}
-.photo{
-    border-radius: 5px;
-}
-.photo__description{
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem;
-    font-size: 1.5rem;
-}
-.like{
-    border: none;
-    background: transparent;
-    color: red;
-    cursor: pointer;
-}
-.contact, 
-.listbox__btn {
-        padding: 1rem;
-        border-radius: 5px;
-        background: var(--first-color);
-        color: #fff;
-        border: none;
-        font-size: 1.5rem;
-        
-}
-.contact {
-    float: right;
-    position: absolute;
-    top: 3rem;
-    left: 37rem; 
-    display: block;
-}
-/*Modal*/
-.bground-contact {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    height: 100%;
-    width: 100%;
-    overflow: auto;
-    background-color: rgba(26, 39, 156, 0.4);
-  }
-  .content {
-    margin: 5% auto;
-    width: 100%;
-    max-width: 500px;
-    animation-name: modalopen;
-    animation-duration: var(--modal-duration);
-    background: #DB8876;
-    border-radius: 10px;
-    overflow: hidden;
-    position: relative;
-    padding-top: 10px;
-  }
-  .form-header{
-    font-weight: 400;
-    font-size: 3.4rem;
-    padding: 1rem 1rem 1rem 4rem;
-  }
- 
-  .modal-body {
-    padding: 15px 8%;
-    margin: 15px auto;
-  }
-  .close-contactForm {
-    display: block;
-    padding: 1rem;
-    width: 4rem;
-    position: absolute;
-    height: 4rem;
-    font-size: 2rem;
-    right: 3rem;
-    top: 2rem;
-  }
-  label {
-    font-family: var(--font-default);
-    font-size: 1.7rem;
-    font-weight: normal;
-    display: inline-block;
-    margin: 1rem 0;;
-  }
-  input {
-    padding: 8px;
-    border: 0.8px solid #ccc;
-    outline: none;
-  }
-  .text-control {
-    margin: 0;
-    padding: 8px;
-    width: 100%;
-    border-radius: 8px;
-    font-size: 20px;
-    height: 48px;
-  }
-  #message {
-      height: 12rem;
-  }
-  #submit-btn {
-      position: unset;
-      margin-top: 1rem;
-  }
-
-  /*LIGHTBOX*/
-  #lightbox {
-    width: 100%;
-    height: 100%;
-    background: aquamarine;
-    display: none;
-  }
-  #lightbox.active {
-      display: flex;
-      justify-content: center;
-  }
-  #lightboxImg {
-      position: relative;
-      width: 60%;
-      height: 60%;
-  }
-  .slides {
-    max-height: 60%;
-    max-width: 60%;
-    padding: 1rem;
-    margin: 1rem;
-  }
-  .close-lightbox {
-    height: 2rem;
-    width: 2rem;
-    position: relative;
-    left: 100px;
-    top: 1rem;
-    left: 97rem;
-  }
-  .lightbox-btn {
-    display: block;
-    height: 2rem;
-    width: 2rem;
-    position: relative;
-    top: 21rem;
-    font-size: 2rem;
-  }
-  #next {
-    left: 84rem;
-  }
-
-  /* Class error for message added by JS*/
-
-.formData[data-error]::after {
-    content: attr(data-error);
-    font-size: 12px;
-    color: #e54858;
-    display: block;
-    margin: 7px 0;
-    text-align: right;
-    line-height: 0.3;
-    opacity: 0;
-    transition: 0.3s;
-  }
-  .formData[data-error-visible="true"]::after {
-    opacity: 1;
-  }
-  .formData[data-error-visible="true"] .text-control {
-    border: 2px solid #e54858;
-  }
-  
-  input[data-error]::after {
-      content: attr(data-error);
-      font-size: 0.4em;
-      color: red;
-  }
-  /* End of class error for message added by JS*/
-
-
 
 /*********************************** DESKTOP ***********************************/
 
@@ -406,11 +190,12 @@ main {
     *********/
 
     #main-header {
-        margin-top: 6rem;
+        margin-top: 7rem;
         height: 10vh;
         display: flex;
-        /* justify-content:space-evenly; */
+        justify-content: flex-start;
         align-items: center;
+        align-content: center;
     } 
     .logo {
         position: relative;
@@ -448,101 +233,23 @@ main {
     }
 
     .main-title {
+        position: absolute;
         width: 21.9rem;
         height: 1.8rem;
         left: 100.4rem;
-        top: -4rem;
+        top: -11rem;
         font-size: 2.6rem;
     }
     .photographers__container {
+        margin-top: 7rem;
         display: grid;
         grid-template-columns: repeat(3, 380px);
         grid-template-rows: repeat(2, 400px);
         justify-items: center;
+        justify-content: space-between;
     }
     .photographer__card {
         margin: 1rem;  
-    }
-
-     /*************************
-    SELECTED PHOTOGRAPHER PAGE 
-    *************************/
-    .photographer__id__section{
-        margin: 3rem 0;
-        height: 25rem;
-        padding: 1rem;
-        background: rgba(223, 221, 221, 0.199);
-        border-radius: 5px;
-    }
-    .photographer__header {
-        margin: 0 1.5rem;
-    }
-    .photographer__info {
-        display: flex;
-        flex-direction: column;
-        margin: 1rem 0;
-    }
-    .photographer__page-text{
-        text-align: start;
-        margin: 1rem 0;
-    }
-    
-    .photographer__id {
-        height: 17rem;
-        width: 17rem;
-        margin-top: 2rem;
-        margin-right: 5rem;
-    }
-    .tag__link{
-        margin: unset;
-        align-self: center;
-    }
-    /* .tag__link-tag{
-        background-color: #ffff;
-    } */
-    .btn, 
-    .listbox__btn {
-        padding: 1.5rem;
-        border-radius: 5px;
-        background: var(--first-color);
-        color: #fff;
-        border: none;
-        font-size: 1.5rem;
-        /* float: right; */
-        position: absolute;
-        top: 3rem;
-        left: 37rem;
-    }
-    .listbox_container {
-        font-size: 1.5rem;
-    }
-    .listbox_container>p{
-        margin-right: 1rem;
-        padding-top: 1rem;
-    }
-    .listbox__btn {
-        display: flex;
-        position: unset;
-        top: unset;
-        left: unset;
-        padding: 1rem;
-    }
-    #filter_listbox {
-        display: none;
-        background: var(--first-color);
-        color: #fff;
-        padding: 0.5rem;
-        border-radius: 5px;
-    }
-    
-    .fa-chevron-down {
-        margin-left: 0.5rem;
-    }
-    .gallery{
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        justify-items: center;
-    }
-    
+    }  
    
 }
