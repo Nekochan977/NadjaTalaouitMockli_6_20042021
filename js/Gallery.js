@@ -46,7 +46,7 @@ export default class Gallery {
             <p class="photo__title">${media.title}</p>
             <p class="photo__date">${media.date}</p>
             <div class="likes">
-              <p class="photo__likes">${media.likes}</p>
+              <p id="mediaLikes" class="photo__likes">${media.likes}</p>
               <button class="like" aria-label="click to like"><i class="fas fa-heart"></i></button>
             </div>
           </div>`;
@@ -72,5 +72,47 @@ export default class Gallery {
     const select = document.getElementById("listbox"); //select html
     select.addEventListener("change", filterBy);
 
+     //get all likes
+    //queryslectors & variables
+    const likesAndPriceDiv = document.querySelector(".likesAndPrice");
+    const likeBtn = document.querySelectorAll(".like");
+    let likesAndPrice = "";
+    let mediaLikes = [];
+    let totalLikes = [];
+    
+    function getAllLikes(){
+      for(let i = 0; i < document.querySelectorAll(".photo__likes").length; i++){
+        mediaLikes.push(parseInt(document.querySelectorAll(".photo__likes")[i].firstChild.data))
+        totalLikes = mediaLikes.reduce((a,b)=>{return a + b});
+        }
+      }
+      
+    getAllLikes()
+
+    console.log(totalLikes);
+
+    function incrementLike(e) {
+      //console.log(document.querySelectorAll(".photo__likes"));
+      for(let i = 0; i < document.querySelectorAll(".photo__likes").length; i++){
+        mediaLikes = parseInt(document.querySelectorAll(".photo__likes")[i].firstChild.data);
+        mediaLikes = isNaN(mediaLikes) ? 0 : mediaLikes;
+        if(e.curentTarget=="click") {
+          mediaLikes++
+        }
+        document.querySelectorAll(".photo__likes")[i].firstChild.data = mediaLikes;
+        totalLikes = mediaLikes;
+        console.log(totalLikes);
+      }
+    }
+    likeBtn.forEach((btn)=>{
+      btn.addEventListener("click", (e)=>{
+        incrementLike(e);
+        e.currentTarget.previousElementSibling.firstChild.data++;
+        console.log(totalLikes)
+      })
+    });
+    
+    likesAndPrice = `<p class="total__likes">${totalLikes}<i class="fas fa-heart"></i></p> <p class="price"></p>`;
+    likesAndPriceDiv.innerHTML += likesAndPrice;
   }
 }
