@@ -18,7 +18,8 @@ body {
   width: 90%;
   margin: auto;
 }
-body, html {
+body,
+html {
   height: 100%;
 }
 a {
@@ -565,11 +566,17 @@ input[data-error]::after {
   #prev {
     top: 38rem;
     left: 14rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   #next {
     right: 12rem;
     top: 38rem;
     left: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .lightbox-btn {
     font-size: 4rem;
