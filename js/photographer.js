@@ -8,7 +8,7 @@ export default class PhotographersPage {
     const photographerId = data.photographers.filter(
       (photographer) => photographer.id == id
     );
-    console.log(data.photographers);
+    // console.log(data.photographers);
     const photographerInfo = document.querySelector(
       ".photographer__id__section"
     );
@@ -40,48 +40,53 @@ export default class PhotographersPage {
 
     ContactModal(photographerId);
     new Gallery().displayGallery(data.medias, photographerId);
-         //get all likes
+    //get all likes
     //queryslectors & variables
     //console.log(photographerId[0].price);
     const likesAndPriceDiv = document.querySelector(".likesAndPrice");
     const likeBtn = document.querySelectorAll(".like");
     let likesAndPrice = "";
-    let mediaLikes = [];
-    let totalLikes = [];
-    
-    function getAllLikes(){
-      for(let i = 0; i < document.querySelectorAll(".photo__likes").length; i++){
-        mediaLikes.push(parseInt(document.querySelectorAll(".photo__likes")[i].firstChild.data))
-        totalLikes = mediaLikes.reduce((a,b)=>{return a + b});
-        }
-      }
-      
-    getAllLikes()
-
-    console.log(totalLikes);
-
-    function incrementLike(e) {
-      //console.log(document.querySelectorAll(".photo__likes"));
-      for(let i = 0; i < document.querySelectorAll(".photo__likes").length; i++){
-        mediaLikes = parseInt(document.querySelectorAll(".photo__likes")[i].firstChild.data);
-        mediaLikes = isNaN(mediaLikes) ? 0 : mediaLikes;
-        if(e.curentTarget=="click") {
-          mediaLikes++
-        }
-        document.querySelectorAll(".photo__likes")[i].firstChild.data = mediaLikes;
-        totalLikes = mediaLikes;
-        console.log(totalLikes);
+    let totalLikes = 0;
+    let likeContainer = document.querySelectorAll(".photo__likes");
+    //console.log(likeContainer);
+    function getAllLikes() {
+      for (let i = 0; i < likeContainer.length; i++) {
+        totalLikes += parseInt(likeContainer[i].innerHTML);
       }
     }
-    likeBtn.forEach((btn)=>{
-      btn.addEventListener("click", (e)=>{
-        incrementLike(e);
-        e.currentTarget.previousElementSibling.firstChild.data++;
-        console.log(totalLikes)
-      })
-    });
-    
-    likesAndPrice = `<p class="total__likes">${totalLikes}<i class="fas fa-heart"></i></p> <p class="price">${photographerId[0].price}€/jour</p>`;
+    getAllLikes();
+    likesAndPrice = `<p class="total__likes">${totalLikes}</p> <span><i class="fas fa-heart total__likes--heart"></i></span><p class="price">${photographerId[0].price}€/jour</p>`;
     likesAndPriceDiv.innerHTML += likesAndPrice;
+
+    
+
+    function likesCounter() {
+      likeBtn.forEach((item) => {
+        item.addEventListener("click", function (e) {
+          let total = document.querySelector(".total__likes");
+          console.log(e.target);
+          if (e.target.classList.contains("portfolio__heart--liked")) {
+            e.target.classList.replace(
+              "portfolio__heart--liked",
+              "portfolio__heart"
+            );
+            e.target.classList.replace("fas", "far");
+            e.target.parentElement.previousElementSibling.innerHTML--;
+            totalLikes--;
+            total.innerHTML = parseInt(totalLikes);
+            
+          } else {
+            e.target.classList += "--liked";
+            e.target.classList.replace("far", "fas");
+            e.target.parentElement.previousElementSibling.innerHTML++;
+            totalLikes++;
+            total.innerHTML = parseInt(totalLikes);
+            
+          }
+        });
+      });
+    }
+    likesCounter();
+
   }
 }
