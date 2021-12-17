@@ -48,7 +48,7 @@ new DataReader().getData().then((data) => {
             let str =`
                 <a href="./photographerPage.html?id=${photographe.id}" class="link__photographer">
                     <div class="photographer__img">
-                        <img src="Medias/photoID/${photographe.portrait}">
+                        <img src="Medias/photoID/${photographe.portrait}" alt="${photographe.name} portrait photo">
                     </div>
                     <h2 class="photographer__name">
                         ${photographe.name}
