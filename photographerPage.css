@@ -80,14 +80,14 @@ main {
   height: 12rem;
   width: 12rem;
   float: right;
-  top: 14rem;
+  top: 10rem;
   position: absolute;
   right: 3rem;
 }
-.photographer__header {
+/* .photographer__header {
   width: -moz-available;
   width: max-content;
-}
+} */
 .photographer__name {
   color: var(--secondary-color);
   margin: 2rem 0 0.5rem;
@@ -112,7 +112,7 @@ main {
 }
 .tag__link-tag {
   border: 0.5px solid #c4c4c4;
-  padding: 0.5rem;
+  padding: 0.2rem 0.5rem;
   border-radius: 11px;
   margin: 0.5rem 0.5rem 0.5rem 0;
 }
@@ -124,21 +124,15 @@ main {
   box-shadow: -8px 10px 53px -18px rgba(0, 0, 0, 0.51);
   -webkit-box-shadow: -8px 10px 53px -18px rgba(0, 0, 0, 0.51);
   -moz-box-shadow: -8px 10px 53px -18px rgba(0, 0, 0, 0.51);
+  object-fit: cover;
 }
-/*Gallery section*/
-/*Filter*/
+
 .listbox_container {
   display: flex;
 }
-/* .listbox__btn{
-    z-index: 1;
-} */
+
 .hidden {
   display: none;
-  /* background: var(--first-color);
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 5px; */
 }
 
 .fa-chevron-up {
@@ -150,6 +144,7 @@ main {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  margin: 1rem 0;
 }
 .gallery__photo {
   height: 24rem;
@@ -161,7 +156,6 @@ main {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top;
 }
 .video {
   border-radius: 5px;
@@ -191,32 +185,20 @@ main {
   justify-content: end;
   position: relative;
 }
-.like {
+.like,
+.like--liked,
+.portfolio__heart {
   border: none;
   background: transparent;
   color: var(--first-color);
   cursor: pointer;
 }
+
 .photo__likes {
   margin-right: 1rem;
 }
 .likesAndPrice {
-  position: fixed;
-  display: inline-flex;
-  bottom: 0;
-  right: 10rem;
-  width: 24rem;
-  margin: 0 auto;
-  border-radius: 5px;
-  font-size: 1.7rem;
-  height: 3rem;
-  background: var(--secondary-color);
-}
-.total__likes {
-  padding: 0.5rem;
-}
-.price {
-  padding: 0.5rem;
+  display: none;
 }
 
 .contact,
@@ -245,9 +227,8 @@ option::after {
   position: fixed;
   left: 34.47%;
   right: 27.2%;
-  top: 39%;
-  bottom: 56.69%;
-  background: var(--first-color);
+  bottom: 1rem;
+  /* background: var(--first-color); */
   border-radius: 5px;
 }
 /*Modal*/
@@ -467,30 +448,14 @@ input[data-error]::after {
     position: absolute;
     padding: 1rem;
     height: 4rem;
+    top: 15rem;
+    width: fit-content;
   }
   #submit-btn {
     left: unset;
     padding: 1.5rem 3rem;
     font-size: 1.5rem;
   }
-
-  /* .tag__link-tag{
-        background-color: #ffff;
-    } */
-  /* .btn,
-  .listbox__btn {
-    padding: 1.5rem;
-    border-radius: 5px;
-    background: var(--first-color);
-    color: #fff;
-    border: none;
-    font-size: 1.5rem;
-     float: right;
-    position: absolute;
-    top: 3rem;
-    left: 37rem;
-  } 
-  */
 
   .listbox_container {
     font-size: 1.5rem;
@@ -508,13 +473,6 @@ input[data-error]::after {
     left: unset;
     padding: 1rem;
   }
-  /* #filter_listbox {
-    display: none;
-    background: var(--first-color);
-    color: #fff;
-    padding: 0.5rem;
-    border-radius: 5px;
-  } */
 
   .fa-chevron-down {
     margin-left: 0.5rem;
@@ -537,6 +495,7 @@ input[data-error]::after {
     /* width: 32rem;
     height: 30rem; */
     object-fit: cover;
+    object-position: top;
     /* overflow: hidden; */
   }
   .photo__description {
@@ -544,6 +503,35 @@ input[data-error]::after {
   }
   .like {
     position: relative;
+  }
+
+  .likesAndPrice {
+    position: fixed;
+    display: inline-flex;
+    bottom: 0;
+    right: 10rem;
+    width: 24rem;
+    margin: 0 auto;
+    border-radius: 5px;
+    font-size: 1.7rem;
+    height: 4rem;
+    background: var(--secondary-color);
+    align-items: center;
+  }
+  .total__likes {
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  .total__likes--heart {
+    display: inline-block;
+    color: #000;
+    height: 1.5rem;
+    width: 1.5rem;
+    padding: 0.5rem;
+  }
+  .price {
+    padding: 0.5rem;
+    margin-left: 9rem;
   }
 
   .close-lightbox {
