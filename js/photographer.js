@@ -19,7 +19,7 @@ export default class PhotographersPage {
     let info = `
             <h1 class ="photographer__name">${photographerId[0].name}</h1>
             <div class="photographer__img photographer__id">
-                <img src="Medias/photoID/${photographerId[0].portrait}">
+                <img src="Medias/photoID/${photographerId[0].portrait}" alt="${photographerId[0].name}portrait photo">
             </div>
             <div class="photographer__info">
               <p class="photographer__location photographer__page-text">
@@ -59,7 +59,6 @@ export default class PhotographersPage {
     likesAndPriceDiv.innerHTML += likesAndPrice;
 
     
-
     function likesCounter() {
       likeBtn.forEach((item) => {
         item.addEventListener("click", function (e) {
@@ -74,14 +73,12 @@ export default class PhotographersPage {
             e.target.parentElement.previousElementSibling.innerHTML--;
             totalLikes--;
             total.innerHTML = parseInt(totalLikes);
-            
           } else {
             e.target.classList += "--liked";
             e.target.classList.replace("far", "fas");
             e.target.parentElement.previousElementSibling.innerHTML++;
             totalLikes++;
             total.innerHTML = parseInt(totalLikes);
-            
           }
         });
       });
