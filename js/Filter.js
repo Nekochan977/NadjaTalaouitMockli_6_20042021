@@ -9,7 +9,6 @@ export function filterBy(e) {
   let list = document.getElementById("photos-list");
   let b = list.childNodes;
   //returns nodeList of articles
-
   switch (filter) {
     case "popularité":
       switching = true;
@@ -105,7 +104,6 @@ export function filterBy(e) {
           /* If a switch has been marked, make the switch
             and mark the switch as done: */
           b[i].parentNode.insertBefore(b[i + 1], b[i]);
-
           switching = true;
         }
       }

@@ -48,7 +48,7 @@ new DataReader().getData().then((data) => {
             let str =`
                 <a href="./photographerPage.html?id=${photographe.id}" class="link__photographer">
                     <div class="photographer__img">
-                        <img src="Medias/photoID/${photographe.portrait}" alt="${photographe.name} portrait photo">
+                        <img src="Medias/photoID/${photographe.portrait}" alt="">
                     </div>
                     <h2 class="photographer__name">
                         ${photographe.name}
@@ -65,32 +65,34 @@ new DataReader().getData().then((data) => {
                      ${photographe.price}€/jour
                 </p>
                 <div class="tag_container">${photographe.tags.map(tag =>
-                    `<a class="tag__link"><span class="tag__link-tag">#${tag}</span></a>`).join(" ")}
+                    `<a href="#" class="tag__link"><span class="tag__link-tag">#${tag}</span></a>`).join(" ")}
                 </div>
             `;
 
             photographersContainer.appendChild(photographerCard);
             photographerCard.innerHTML += str;
-            
         })//End of section photographer card
         
         
         dispTags(tagsList, document.querySelector(".nav-bar"));
         
-        // Filter photographers when tag of nav-bar is clicked
-        document.querySelector('.nav-bar').addEventListener("click", (e)=> {
-            const filter = e.target.textContent.slice(1);
-            const articles = document.querySelectorAll('article');
-            articles.forEach((article)=>{ 
-                if (article.lastElementChild.textContent.includes(filter) == true){
-                    article.style.display ="";
-                }else{
-                    article.style.display ="none";
-                }
-                return article;
-                
-            }) 
-        })
+        // Filter photographers when tag is clicked
+
+        document.querySelectorAll(".tag__link-tag").forEach((tagLink)=>{
+            tagLink.addEventListener("click", (e)=>{
+                const tag = e.currentTarget.textContent.slice(1);
+                const articles = document.querySelectorAll('article');
+                articles.forEach((elt)=>{
+                    if(elt.lastElementChild.textContent.includes(tag) ==true){
+                        elt.style.display ="";
+                    }else{
+                        elt.style.display ="none";
+                    }
+                    return elt;
+                })     
+            })
+        });
+        
     }//End of script section for homepage
 })//End of new object
 .catch(() => {
