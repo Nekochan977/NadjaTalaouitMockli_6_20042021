@@ -3,19 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Page photographe sélectionné">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com"> 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,900;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="photographerPage.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
-    <title>Photographer Page</title>
+    <title>Page Photographe</title>
 </head>
 <body>
      <!--HEADER-->
      <header id="main-header">
         <div class="logo">
-            <a href="./index.html" class="logo-link"> <img class="logo-img" src="./Medias/logo.png" alt="logo"></a>
+            <a href="./index.html" class="logo-link"> <img class="logo-img" src="./Medias/logo.png" alt="logo FishEye" aria-label="Retour page principale"></a>
         </div>
         
     </header>
@@ -25,24 +26,19 @@
     <main>
             
         <!--PHOTOGRAPHER INFO SECTION-->
-        <section class="photographer__id__section">          
-        </section>
+        <section class="photographer__id__section"></section>
         <!--END OF PHOTOGRAPHER INFO SECTION-->
         <!--FILTER-->
         <!--filter container-->
         <div class="listbox_container">
-            <label for="filter_listbox">Trier par</label>
-            <!--filter wrapper-->
-            <div class="listbox__btn">
-
-                <select name="filter" id="listbox" class="listbox">
-                    <option value="popularité" >Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i></option>
-                    <option value="date">Date</option>
-                    <option value="titre">Titre</option>
-                </select>
-            </div>
-            <!--end of filter wrapper-->
-        </div> <!--End of filter container-->
+            <span aria-label="liste filtrante">Trier par</span>
+            <select aria-label="filtrer par" name="filtre" id="listbox" class="listbox listbox__btn">
+                <option value="popularité" >Popularité <i class="fas fa-chevron-down"></i><i class="fas fa-chevron-up"></i></option>
+                <option value="date">Date</option> 
+                <option value="titre">Titre</option>
+            </select>
+        </div> 
+        <!--End of filter container-->
         <!--END OF FILTER-->
 
         <!--GALLERY SECTION-->
