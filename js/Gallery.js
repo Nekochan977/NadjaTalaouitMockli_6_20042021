@@ -25,7 +25,7 @@ export default class Gallery {
       if ("video" in media) {
         photo = `
             <div class="gallery__photo">
-              <video class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.video}" type="video/mp4" alt="${media.title}"></video>
+              <video class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.video}" type="video/mp4" alt="${media.title}video"></video>
             </div>
           `;
       }
@@ -33,7 +33,7 @@ export default class Gallery {
       else {
         photo = `
             <div class="gallery__photo">
-              <img class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.image}" alt="${media.title}"></img>
+              <img class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.image}" alt="${media.title}photo"></img>
             </div>
           `;
       }

@@ -14,7 +14,7 @@ function ContactModal(photographerId) {
   function launchModal() {
     modalBg.style.display = "block";
     modalBtn.style.display = "none";
-    let header = `<span class="header-content">${photographerId[0].name}</br> Contactez-moi</span>`;
+    let header = `${photographerId[0].name}</br> Contactez-moi`;
     modalHeader.innerHTML = header;
   }
   //close Modal form

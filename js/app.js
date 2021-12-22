@@ -77,7 +77,6 @@ new DataReader().getData().then((data) => {
         dispTags(tagsList, document.querySelector(".nav-bar"));
         
         // Filter photographers when tag is clicked
-
         document.querySelectorAll(".tag__link-tag").forEach((tagLink)=>{
             tagLink.addEventListener("click", (e)=>{
                 const tag = e.currentTarget.textContent.slice(1);
