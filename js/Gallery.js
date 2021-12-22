@@ -7,14 +7,10 @@ export default class Gallery {
     //medias returns an array containing all medias objects
     //photographerId returns an array with 1 object containing the selected photographer info.
     const gallerySection = document.querySelector(".gallery");
-    
-    //gallerySection.id += "photos-list";
-
-    const photographerMedias = medias.filter(
-      (media) => media.photographerId == photographerId[0].id
-    );
+    gallerySection.id += "photos-list";
+    const photographerMedias = medias.filter((media) => media.photographerId == photographerId[0].id);
     //creates an array that contains objects with the selected photographer medias
-
+    
     //photographer's gallery
     photographerMedias.map((media) => {
       //media returns each of the photographer's medias in separated objects
@@ -29,7 +25,7 @@ export default class Gallery {
       if ("video" in media) {
         photo = `
             <div class="gallery__photo">
-            <video class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.video}" type="video/mp4" alt="${media.title}"></video>
+              <video class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.video}" type="video/mp4" alt="${media.title}"></video>
             </div>
           `;
       }
