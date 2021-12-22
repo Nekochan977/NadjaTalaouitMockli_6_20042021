@@ -15,7 +15,7 @@ html {
     font-size: 62.5%;
 }
 body {
-    width: 90%;
+    width: 90%; 
     margin: auto;
 }
 a {
@@ -54,7 +54,7 @@ img {
 }
 /* NAV-BAR */
 
-.nav-bar {
+.nav-bar, .nav-bar:focus {
     position: absolute;
     width: 34.5rem;
     height: 8vh;
@@ -188,11 +188,14 @@ main {
 
 /* Merdia-queries */
 
-@media screen and (min-width:800px) and (max-width:1440px) {
+@media (min-width:800px) {
 
     /*********
     HEADER 
     *********/
+    body {
+        max-width: 1440px;
+    }
 
     #main-header {
         margin-top: 7rem;
