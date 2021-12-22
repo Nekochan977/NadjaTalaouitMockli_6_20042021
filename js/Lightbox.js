@@ -2,7 +2,7 @@
 
 export function showLightbox(title) {
   //lightbox
-  //queryselectors
+  //queryselectors & variables
   const header = document.getElementById("main-header");
   const idSection = document.querySelector(".photographer__id__section");
   const listbox = document.querySelector(".listbox_container");
@@ -12,11 +12,10 @@ export function showLightbox(title) {
   const closeLibobxBtn = document.querySelector(".close-lightbox");
   const lightboxBtns = document.querySelectorAll(".lightbox-btn");
   const gallerySection = document.querySelector(".gallery");
- 
   const lightbox = [];
-
   let id = [];
 
+  //CSS modification when lightbox is open
   lightboxContainer.classList.add("active");
   gallerySection.style.display = "none";
   header.style.display = "none";
@@ -35,9 +34,9 @@ export function showLightbox(title) {
   }
 
   if (lightbox[id].src.includes("mp4")) {
-    slideHTML = `<video controls class="photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>`;
+    slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>`;
   } else {
-    slideHTML = `<img class="mp4" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
+    slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
   }
   slides.innerHTML += slideHTML;
 
@@ -47,23 +46,22 @@ export function showLightbox(title) {
       slides.removeChild(slides.firstChild);
     }
     if (lightbox[id].src.includes("mp4")) {
-      slideHTML = `<video controls class="photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>`;
+      slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>`;
     } else {
-      slideHTML = `<img class="photo" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
+      slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
     }
 
     slides.innerHTML += slideHTML;
   };
   const transitionSlidesRight = () => {
     id++;
-
     while (slides.firstChild) {
       slides.removeChild(slides.firstChild);
     }
     if (lightbox[id].src.includes("mp4")) {
-      slideHTML = `<video controls class="photo" title="${lightbox[id].title}" src="${lightbox[id].src}" type="video/mp4"></video>`;
+      slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}" type="video/mp4"></video>`;
     } else {
-      slideHTML = `<img class="photo" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
+      slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
     }
 
     slides.innerHTML += slideHTML;
