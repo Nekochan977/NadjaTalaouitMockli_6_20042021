@@ -2,15 +2,23 @@
 
 //form submission
 function ContactModal(photographerId) {
+  //variables
   const modalBtn = document.querySelector(".contact");
   const submitBtn = document.getElementById("submit-btn");
   const modalBg = document.querySelector(".bground-contact");
   const closeModal = document.querySelector(".close-contactForm");
   const modalHeader = document.querySelector(".form-header");
   const form = document.getElementById("contact-form");
-  modalBtn.addEventListener("click", launchModal);
-  closeModal.addEventListener("click", crossClose);
-  //launch Modal form
+  const firstName = document.querySelector("#prenom");
+  const firstnameDiv = document.querySelector("#prenom-div");
+  const lastName = document.querySelector("#nom");
+  const lastnameDiv = document.querySelector("#nom-div");
+  const email = document.querySelector("#email");
+  const emailDiv = document.querySelector("#email-div");
+  const message = document.querySelector("#message");
+  const messageDiv = document.querySelector("#message-div");
+  //functions 
+   //launch Modal form
   function launchModal() {
     modalBg.style.display = "block";
     modalBtn.style.display = "none";
@@ -22,33 +30,19 @@ function ContactModal(photographerId) {
     modalBg.style.display = "none";
     modalBtn.style.display = "block";
   }
+  // Event listeners
+  modalBtn.addEventListener("click", launchModal);
+  closeModal.addEventListener("click", crossClose);
   // Form validation
-
-  // Retrieve nodes for validation
-  //first name
-  const firstName = document.querySelector("#prenom");
-  const firstnameDiv = document.querySelector("#prenom-div");
-  //last name
-  const lastName = document.querySelector("#nom");
-  const lastnameDiv = document.querySelector("#nom-div");
-  //email
-  const email = document.querySelector("#email");
-  const emailDiv = document.querySelector("#email-div");
-  //message
-  const message = document.querySelector("#message");
-  const messageDiv = document.querySelector("#message-div");
-
   submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
     
-    //add a counter to check each form input
+    //add a counter to check if each form input is valid and if they are all completed
     let counter = 0;
     // Validation conditions
-
     // input values does not accept blanks
     const firstNameValue = firstName.value.trim();
     const lastNameValue = lastName.value.trim();
-
     //define email format
     const mailFormat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
