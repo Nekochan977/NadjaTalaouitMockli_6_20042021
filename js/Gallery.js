@@ -8,10 +8,11 @@ export default class Gallery {
     //photographerId returns an array with 1 object containing the selected photographer info.
     const gallerySection = document.querySelector(".gallery");
     gallerySection.id += "photos-list";
+    const select = document.getElementById("listbox"); //select html
     const photographerMedias = medias.filter((media) => media.photographerId == photographerId[0].id);
     //creates an array that contains objects with the selected photographer medias
     
-    //photographer's gallery
+    //creating the photographer's gallery
     photographerMedias.map((media) => {
       //media returns each of the photographer's medias in separated objects
       //creating dynamically the selected photographer's gallery
@@ -25,7 +26,7 @@ export default class Gallery {
       if ("video" in media) {
         photo = `
             <div class="gallery__photo">
-              <video class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.video}" type="video/mp4" alt="${media.title}video"></video>
+              <video class="photo video " title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.video}" type="video/mp4" alt="${media.title}. Cliquez pour agrandir. Video"  role="link" tabindex=0></video>
             </div>
           `;
       }
@@ -33,7 +34,7 @@ export default class Gallery {
       else {
         photo = `
             <div class="gallery__photo">
-              <img class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.image}" alt="${media.title}photo"></img>
+              <img class="photo" title="${media.title}" src="Medias/${photographerId[0].name.split(" ")[0].replace("-", " ")}/${media.image}" alt="${media.title}. Cliquez pour agrandir. Photo" role="link" tabindex=0></img>
             </div>
           `;
       }
@@ -57,15 +58,16 @@ export default class Gallery {
       gallerySection.appendChild(photoArticle);
 
       //event listerner to launch lightbox
-      mediaDiv.addEventListener("click", (e) => {
-        console.log(e.target);
+      mediaDiv.addEventListener("click", () => { 
         showLightbox(media.title, media.src);
       });
-    });
+      mediaDiv.addEventListener("keydown",(e)=>{
+        if(e.code === "Enter"){showLightbox(media.title, media.src);}
+      })
+    }); 
     // End of gallery
 
-    //Filter Gallery
-    const select = document.getElementById("listbox"); //select html
+    //Gallery filter event listener
     select.addEventListener("change", filterBy);
   }
 }
