@@ -3,6 +3,7 @@
 export function showLightbox(title) {
   //lightbox
   //queryselectors & variables
+  const totalLikesDiv = document.querySelector(".likesAndPrice");
   const header = document.getElementById("main-header");
   const idSection = document.querySelector(".photographer__id__section");
   const listbox = document.querySelector(".listbox_container");
@@ -13,14 +14,14 @@ export function showLightbox(title) {
   const lightboxBtns = document.querySelectorAll(".lightbox-btn");
   const gallerySection = document.querySelector(".gallery");
   const lightbox = [];
+  const lastImage = lightbox.length -1;
   let id = [];
-
   //CSS modification when lightbox is open
   lightboxContainer.classList.add("active");
   gallerySection.style.display = "none";
   header.style.display = "none";
   idSection.style.display = "none";
-  listbox.style.display = "none";
+  totalLikesDiv.style.display = "none"
 
   images.forEach(function (element) {
     lightbox.push({ title: element.title, src: element.src });
@@ -32,7 +33,7 @@ export function showLightbox(title) {
   while (slides.firstChild) {
     slides.removeChild(slides.firstChild);
   }
-
+  
   if (lightbox[id].src.includes("mp4")) {
     slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>`;
   } else {
@@ -83,7 +84,7 @@ export function showLightbox(title) {
     lightboxContainer.classList.remove("active");
     header.style.display = "block";
     idSection.style.display = "flex";
-    listbox.style.display = "flex";
     gallerySection.style.display = "grid";
+    totalLikesDiv.style.display = "flex"
   });
 }
