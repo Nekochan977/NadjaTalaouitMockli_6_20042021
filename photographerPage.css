@@ -1,8 +1,12 @@
+/*************************
+ SELECTED PHTOGRAPHER PAGE 
+ ************************/
+
 /* Basic styling */
 
 :root {
   --first-color: #911c1c;
-  --secondary-color: #d3573c;
+  --secondary-color: #D44507;
   --third-color: #757575;
 }
 * {
@@ -38,9 +42,6 @@ img {
 
 /*********************************** Mobile first ***********************************/
 
-/*************************
- SELECTED PHTOGRAPHER PAGE 
- ************************/
 /*********
  HEADER 
  *********/
@@ -73,6 +74,9 @@ main {
   justify-content: flex-start;
   display: flex;
 }
+.photographer__id__section:focus{
+  outline: blue;
+}
 .photographer__info {
   margin: 1rem 0;
 }
@@ -84,10 +88,6 @@ main {
   position: absolute;
   right: 3rem;
 }
-/* .photographer__header {
-  width: -moz-available;
-  width: max-content;
-} */
 .photographer__name {
   color: var(--secondary-color);
   margin: 2rem 0 0.5rem;
@@ -127,16 +127,7 @@ main {
   -moz-box-shadow: -8px 10px 53px -18px rgba(0, 0, 0, 0.51);
   object-fit: cover;
 }
-
-.listbox_container {
-  display: flex;
-}
-
-.hidden {
-  display: none;
-}
-
-.fa-chevron-up {
+.listbox_container{
   display: none;
 }
 .photo__card {
@@ -147,34 +138,30 @@ main {
   flex-direction: column;
   margin: 1rem 0;
 }
-.gallery__photo {
+.media-div:focus {
   height: 24rem;
   width: 37rem;
   padding: 2rem;
 }
 .photo, .lightbox-photo {
   border-radius: 5px;
-  width: 100%;
-  height: 100%;
+  width: 37rem;
+  height: 28rem;
   object-fit: cover;
 }
-/* .video {
+.video {
   border-radius: 5px;
   width: 100%;
   height: 100%;
   object-fit: cover;
-} */
+}
 .photo__description {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem;
-  font-size: 1.5rem;
-  margin: 0px 1rem;
-  width: 35rem;
+  font-size: 1.7rem;
+  margin: 0.4rem 0;
+  width: 37rem;
   color: var(--first-color);
-}
-.photo__description > p {
-  margin: 0 1rem;
 }
 .photo__date {
   visibility: hidden;
@@ -194,15 +181,13 @@ main {
   color: var(--first-color);
   cursor: pointer;
 }
-
 .photo__likes {
   margin-right: 1rem;
 }
 .likesAndPrice {
   display: none;
 }
-
-.contact,
+.contact, 
 .listbox__btn {
   padding: 1rem;
   border-radius: 5px;
@@ -211,25 +196,11 @@ main {
   border: none;
   font-size: 1.5rem;
 }
-#listbox {
-  background: #911c1c;
-  outline: none;
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  position: relative;
-}
-option::after {
-  border-radius: 10px;
-  width: 7rem;
-  line-height: 1rem;
-}
 .contact {
   position: fixed;
   left: 34.47%;
   right: 27.2%;
-  bottom: 1rem;
-  /* background: var(--first-color); */
+  bottom: 12  rem;
   border-radius: 5px;
 }
 /*Modal*/
@@ -261,7 +232,6 @@ option::after {
   font-size: 3.2rem;
   padding: 1rem 1rem 1rem 4rem;
 }
-
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
@@ -311,7 +281,6 @@ input {
   color: #fff;
   left: 12rem;
 }
-
 /*LIGHTBOX*/
 #lightbox {
   width: 100%;
@@ -377,7 +346,6 @@ input {
   left: 31rem;
   color: var(--first-color);
 }
-
 /* Class error for message added by JS*/
 
 .formData[data-error]::after {
@@ -397,7 +365,6 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-
 input[data-error]::after {
   content: attr(data-error);
   font-size: 0.4em;
@@ -450,7 +417,6 @@ input[data-error]::after {
     top: -2.5rem;
   }
   .tag__link {
-    /* margin: unset; */
     align-self: center;
   }
   .contact {
@@ -465,8 +431,9 @@ input[data-error]::after {
     padding: 1.5rem 3rem;
     font-size: 1.5rem;
   }
-
   .listbox_container {
+    display: flex;
+    align-items: center;
     font-size: 1.5rem;
     margin: 1rem;
     margin-left: 3.5rem;
@@ -475,6 +442,32 @@ input[data-error]::after {
     margin-right: 1rem;
     padding-top: 1rem;
   }
+  #listbox {
+    background: #911c1c;
+    outline: none;
+    border: none;
+    border-radius: 12px;
+    color: #fff;
+    position: relative;
+  }
+  #listbox:focus{
+    outline: auto;
+    border: blue;
+  }
+  option::after {
+    border-radius: 10px;
+    width: 7rem;
+    line-height: 1rem;
+  }
+  .filter-by {
+    margin-right: 1rem;
+  }
+  .hidden {
+    display: none;
+  }
+  .fa-chevron-up {
+    display: none;
+  }
   .listbox__btn {
     display: flex;
     position: unset;
@@ -482,7 +475,6 @@ input[data-error]::after {
     left: unset;
     padding: 1rem;
   }
-
   .fa-chevron-down {
     margin-left: 0.5rem;
   }
@@ -501,19 +493,19 @@ input[data-error]::after {
     width: 37rem;
   }
   .photo {
-    /* width: 32rem;
-    height: 30rem; */
     object-fit: cover;
     object-position: top;
-    /* overflow: hidden; */
   }
   .photo__description {
     width: 33rem;
+    margin: 0 1rem;
+  }
+  .photo__description > p {
+    margin: 0 1rem;
   }
   .like {
     position: relative;
   }
-
   .likesAndPrice {
     position: fixed;
     display: inline-flex;
@@ -542,7 +534,6 @@ input[data-error]::after {
     padding: 0.5rem;
     margin-left: 9rem;
   }
-
   .close-lightbox {
     top: 2rem;
     right: 4rem;
