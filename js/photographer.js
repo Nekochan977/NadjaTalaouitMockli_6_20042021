@@ -46,9 +46,7 @@ export default class PhotographersPage {
     let likesAndPrice = "";
     let totalLikes = 0;
     let likeContainer = document.querySelectorAll(".photo__likes");
-    //add inner HTML in div
-    likesAndPrice = `<p class="total__likes">${totalLikes}</p> <span><i class="fas fa-heart total__likes--heart"></i></span><p class="price">${photographerId[0].price}€/jour</p>`;
-    likesAndPriceDiv.innerHTML += likesAndPrice;
+    
     //functions
     function getAllLikes() {
       for (let i = 0; i < likeContainer.length; i++) {
@@ -58,11 +56,8 @@ export default class PhotographersPage {
         
     function likesCounter() {
       likeBtn.forEach((item) => {
-        //console.log(item.children);
         let total = document.querySelector(".total__likes");
         item.addEventListener("click", function (e) {
-          
-          console.log(e.target);
           if (e.target.classList.contains("portfolio__heart--liked")) {
             e.target.classList.replace(
               "portfolio__heart--liked",
@@ -80,17 +75,12 @@ export default class PhotographersPage {
             total.innerHTML = parseInt(totalLikes);
           }
         });
-        // item.addEventListener("keydown",(e)=>{
-        //   //for (e.code === "Enter")
-        //   //console.log(item.childNodes[0].);
-        //   if (e.code === "Enter" && item.childNodes){
-        //     console.log("toto");
-        //   }
-        // })
       });
     }
     getAllLikes();
-   
+    //add inner HTML in div
+    likesAndPrice = `<p class="total__likes">${totalLikes}</p> <span><i class="fas fa-heart total__likes--heart"></i></span><p class="price">${photographerId[0].price}€/jour</p>`;
+    likesAndPriceDiv.innerHTML += likesAndPrice;
     likesCounter();
 
   }
