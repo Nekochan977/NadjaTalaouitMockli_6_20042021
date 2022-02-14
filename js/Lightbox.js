@@ -16,12 +16,16 @@ export function showLightbox(title) {
   const lightbox = [];
   const lastImage = lightbox.length -1;
   let id = [];
+  let activeImage;
+  console.log(lastImage);
+
   //CSS modification when lightbox is open
   lightboxContainer.classList.add("active");
   gallerySection.style.display = "none";
   header.style.display = "none";
   idSection.style.display = "none";
-  totalLikesDiv.style.display = "none"
+  totalLikesDiv.style.display = "none";
+  listbox.style.display = "none";
 
   images.forEach(function (element) {
     lightbox.push({ title: element.title, src: element.src });
@@ -86,5 +90,6 @@ export function showLightbox(title) {
     idSection.style.display = "flex";
     gallerySection.style.display = "grid";
     totalLikesDiv.style.display = "flex"
+    listbox.style.display = "flex";
   });
 }
