@@ -2,6 +2,7 @@
 
 import DataReader from "./DataReader.js";
 import PhotographersPage from "./photographer.js"
+import { filterTags } from "./FilterTags.js";
 
 // new Object
 new DataReader().getData().then((data) => {
@@ -73,24 +74,11 @@ new DataReader().getData().then((data) => {
             photographerCard.innerHTML += str;
         })//End of section photographer card
         
-        
+        // Display tags in navbar
         dispTags(tagsList, document.querySelector(".nav-bar"));
         
-        // Filter photographers when tag is clicked
-        document.querySelectorAll(".tag__link-tag").forEach((tagLink)=>{
-            tagLink.addEventListener("click", (e)=>{
-                const tag = e.currentTarget.textContent.slice(1);
-                const articles = document.querySelectorAll('article');
-                articles.forEach((elt)=>{
-                    if(elt.lastElementChild.textContent.includes(tag) ==true){
-                        elt.style.display ="";
-                    }else{
-                        elt.style.display ="none";
-                    }
-                    return elt;
-                })     
-            })
-        });
+        // Filter photographers when tag is clicked or when keybord "Enter" is pressed in navbar
+        filterTags();
         
     }//End of script section for homepage
 })//End of new object
