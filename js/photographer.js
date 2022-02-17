@@ -12,19 +12,19 @@ export default class PhotographersPage {
       ".photographer__id__section"
     );
     const photographeHeader = document.createElement("article");
-
     photographeHeader.className += "photographer__header";
+    photographeHeader.ariaLabel += "Informations photographe"
     // html template for photographer info
     let info = `
-            <h1 class ="photographer__name">${photographerId[0].name}</h1>
-            <div class="photographer__img photographer__id">
+            <h1 aria-label="${photographerId[0].name}" tabindex="0" role="information" class ="photographer__name">${photographerId[0].name}</h1>
+            <div aria-label="photo portrait ${photographerId[0].name}"  class="photographer__id">
                 <img src="Medias/photoID/${photographerId[0].portrait}" alt="photo portrait">
             </div>
             <div class="photographer__info">
-              <p class="photographer__location photographer__page-text" aria-label="Localisation géographique">
-                ${photographerId[0].city}, ${photographerId[0].country}
+              <p class="photographer__location photographer__page-text" aria-label="Localisation géographique ${photographerId[0].city} , ${photographerId[0].country}" role="information" tabindex="0">
+                ${photographerId[0].city} , ${photographerId[0].country}
               </p>
-              <p class="photographer__devise photographer__page-text" aria-label="Devise photographe">
+              <p class="photographer__devise photographer__page-text" aria-label="Devise photographe, ${photographerId[0].tagline}" role="information" tabindex="0">
                 ${photographerId[0].tagline}
               </p>
             </div>
@@ -57,7 +57,8 @@ export default class PhotographersPage {
     function likesCounter() {
       likeBtn.forEach((item) => {
         let total = document.querySelector(".total__likes");
-        item.addEventListener("click", function (e) {
+        let itemClass =[];
+        item.addEventListener("click",(e) => {
           if (e.target.classList.contains("portfolio__heart--liked")) {
             e.target.classList.replace(
               "portfolio__heart--liked",
@@ -75,8 +76,20 @@ export default class PhotographersPage {
             total.innerHTML = parseInt(totalLikes);
           }
         });
+        // item.addEventListener("keydown", (e)=>{
+        //   if(e.code==="Enter"){
+        //     //console.log(item.children[0].classList);
+        //     itemClass.push(item.children[0].classList);
+        //     console.log(itemClass);
+        //     if(itemClass[2].includes("portfolio__heart")){
+        //       console.log("toto");
+        //     }
+        //   }
+        // })
+  
       });
     }
+    
     getAllLikes();
     //add inner HTML in div
     likesAndPrice = `<p class="total__likes">${totalLikes}</p> <span><i class="fas fa-heart total__likes--heart"></i></span><p class="price">${photographerId[0].price}€/jour</p>`;
