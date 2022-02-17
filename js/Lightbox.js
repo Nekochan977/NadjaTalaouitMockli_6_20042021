@@ -39,9 +39,11 @@ export function showLightbox(title) {
   }
   
   if (lightbox[id].src.includes("mp4")) {
-    slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>`;
+    slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>
+    <p class="photo__title">${lightbox[id].title}</p>`;
   } else {
-    slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
+    slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">
+    <p class="photo__title">${lightbox[id].title}</p>`;
   }
   slides.innerHTML += slideHTML;
 
@@ -51,9 +53,11 @@ export function showLightbox(title) {
       slides.removeChild(slides.firstChild);
     }
     if (lightbox[id].src.includes("mp4")) {
-      slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>`;
+      slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" type="video/mp4" src="${lightbox[id].src}"></video>
+      <p class="photo__title">${lightbox[id].title}</p>`;
     } else {
-      slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
+      slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">
+      <p class="photo__title">${lightbox[id].title}</p>`;
     }
 
     slides.innerHTML += slideHTML;
@@ -64,9 +68,11 @@ export function showLightbox(title) {
       slides.removeChild(slides.firstChild);
     }
     if (lightbox[id].src.includes("mp4")) {
-      slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}" type="video/mp4"></video>`;
+      slideHTML = `<video controls class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}" type="video/mp4"></video>
+      <p class="photo__title">${lightbox[id].title}</p>`;
     } else {
-      slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">`;
+      slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">
+      <p class="photo__title">${lightbox[id].title}</p>`;
     }
 
     slides.innerHTML += slideHTML;
@@ -88,7 +94,7 @@ export function showLightbox(title) {
     lightboxContainer.classList.remove("active");
     header.style.display = "block";
     idSection.style.display = "flex";
-    gallerySection.style.display = "grid";
+    gallerySection.style.display = "flex";
     totalLikesDiv.style.display = "flex"
     listbox.style.display = "flex";
   });
