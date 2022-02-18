@@ -40,7 +40,6 @@ img {
 /*********
  HEADER 
  *********/
-
 #main-header {
   width: max-content;
   height: 7vh;
@@ -145,7 +144,7 @@ img {
 .listbox__btn {
   display: none;
 }
-/*** PHOTO GALLERY ***/
+/*** MEDIA GALLERY ***/
 .gallery{
   margin-top: 2rem;
   display: flex;
@@ -154,8 +153,6 @@ img {
   flex-wrap: wrap;
 }
 .photo__card {
-  /* height: 33rem;
-  width: 35rem; */
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -175,6 +172,7 @@ img {
   border-radius: 5px;
   object-fit: cover;
 }
+/*** MEDIA DESCRIPTION ***/
 .photoDescription-container{
   width: 34rem;
 }
@@ -188,6 +186,7 @@ img {
   visibility: hidden;
   display: none;
 }
+/*** LIKES ***/
 .likes {
   display: flex;
   width: 6rem;

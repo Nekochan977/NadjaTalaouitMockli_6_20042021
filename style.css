@@ -2,7 +2,7 @@
 
 :root {
     --first-color: #911C1C;
-    --secondary-color: #D3573C;
+    --secondary-color: #D44507;
     --third-color: #757575;
 }
 * {
@@ -23,13 +23,10 @@ a {
     color: #000;
     cursor: pointer;
 }
-li {
-    list-style: none;
-}
 img {
     max-width: 100%;
     max-height: 100%;
-    display: block;
+    object-fit: cover;
 }
 
 /*********************************** Mobile first ***********************************/
@@ -38,8 +35,17 @@ img {
  HEADER 
  *********/
 
-/* LOGO */
-
+ #main-header {
+    display: flex;
+    width: 100%;
+    min-width: 37rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    margin-top: 2rem;
+    padding: 1rem;
+ }
+/*** LOGO ***/
 .logo {
     position: absolute;
     width: 15rem;
@@ -48,15 +54,12 @@ img {
     top: 4rem;
 }
 .logo-img {
-    position: relative;
     width: 100%;
     height: auto;
 }
-/* NAV-BAR */
-
-.nav-bar, .nav-bar:focus {
+/*** NAV-BAR ***/
+.nav-bar {
     position: absolute;
-    width: 34.5rem;
     height: 8vh;
     top: 8.9rem;
     display: flex;
@@ -71,42 +74,40 @@ img {
     color: var(--first-color);
     margin: 0.5rem;
 }
+.tag__link:focus{
+    font-size: 2rem;
+}
 .tag__link-tag {
     border: 0.5px solid #C4C4C4;
     padding: 0.5rem;
     border-radius: 11px;
 }
-.mainContent__link {
-    display: none;
-}
-
-/********
- MAIN 
- ********/
-
-main {
-    position: relative;
-    top: 15rem;
-}
-
+/*** MAIN TITLE ***/
 .main-title {
     position: absolute;
-    width: 11.9rem;
-    height: 1.8rem;
-    left: 21.4rem;
-    top: -12rem;
     font-style: normal;
     font-weight: normal;
-    font-size: 14px;
+    font-size: 1.8rem;
     line-height: 18px;
     text-align: center;
     color: var(--first-color);
+    right: 3rem;
+    top: 5rem;
 }
-
+/*** ACCESS CONTENT ***/
+.mainContent__link {
+    display: none;
+}
+/********
+ MAIN 
+ ********/
+main {
+    position: relative;
+    top: 9rem;
+}
 /*******************************
  SECTION PHTOGRAPHERS CONTAINER 
  *******************************/
-
 .photographers__container {
     margin-top: 2rem;
     display: flex;
@@ -119,13 +120,11 @@ main {
     position: absolute;
     color: transparent;
 }
-
-/* ARTICLE */
-
+/*** ARTICLE ***/
 .photographer__card {
     width: 28rem;
     height: 33rem;
-    margin: 1rem 0;
+    margin: 2rem 0;
 }
 .link__photographer {
     align-content: center;
@@ -134,8 +133,7 @@ main {
     justify-content: center;
     flex-direction: column; 
 }
-/* Images */
-
+/*** PORTRAIT PHOTO ***/
 .photographer__img {
     position: relative;
 }
@@ -148,9 +146,7 @@ main {
     -webkit-box-shadow: -8px 10px 53px -18px rgba(0,0,0,0.51);
     -moz-box-shadow: -8px 10px 53px -18px rgba(0,0,0,0.51);
 }
-
-/* Text */
-
+/*** TEXT ***/
 .photographer__name {
     color: var(--secondary-color);
     margin: 2rem 0 0.5rem;
@@ -168,7 +164,7 @@ main {
 .photographer__price {
     text-align: center;
     font-size: 1.4rem;
-    line-height: 1.5rem;
+    line-height: 2.7rem;
 }
 .photographer__price {
     color: var(--third-color);
@@ -183,10 +179,7 @@ main {
     text-align: center;
 }
 
-
 /*********************************** DESKTOP ***********************************/
-
-/* Merdia-queries */
 
 @media (min-width:800px) {
 
@@ -196,7 +189,6 @@ main {
     body {
         max-width: 1440px;
     }
-
     #main-header {
         margin-top: 7rem;
         height: 10vh;
@@ -206,12 +198,11 @@ main {
         align-content: center;
     } 
     .logo {
+        min-width: 15rem;
         position: relative;
-        margin: 2rem 3rem 1rem 0;
         top: unset;
     }
-    /* NAV-BAR */
-
+    /*** NAV-BAR ***/
     .nav-bar {
         position: relative;
         width: 70.5rem;
@@ -223,31 +214,29 @@ main {
     }
     .mainContent__link {
         position: absolute;
-        top: 5%;
-        right: 49%;
+        top: 6%;
+        left: 40%;
         font-size: 1.7rem;
         background: #DB8876;
         border-radius: 5px;
         padding: 0.5rem;
     }
-
-
+    .main-title {
+        font-size: 2.6rem;
+        position: relative;
+        left: unset;
+        top: unset;
+        min-width: fit-content;
+    }
     /********
     MAIN 
     ********/
-
     main {
         top: unset;
     }
-
-    .main-title {
-        position: absolute;
-        width: 21.9rem;
-        height: 1.8rem;
-        left: 100.4rem;
-        top: -11rem;
-        font-size: 2.6rem;
-    }
+    /*******************************
+    SECTION PHTOGRAPHERS CONTAINER 
+    *******************************/
     .photographers__container {
         margin-top: 7rem;
         display: grid;
