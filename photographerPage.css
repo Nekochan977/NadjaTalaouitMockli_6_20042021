@@ -421,7 +421,7 @@ input[data-error]::after {
   }
   .contact {
     position: relative;
-    left: 34rem;
+    left: 45rem;
     bottom: 18rem;
     right: unset;
     top: unset;
@@ -474,6 +474,9 @@ input[data-error]::after {
   /*** LIGHTBOX ***/
   #lightbox.active{
     height: 100vh;
+  }
+  .slides > video {
+    height: 50rem;
   }
   .slides {
     height: 100vh;
