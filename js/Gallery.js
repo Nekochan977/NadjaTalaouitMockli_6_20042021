@@ -44,7 +44,7 @@ export default class Gallery {
             <p class="photo__date">${media.date}</p>
             <div class="likes">
               <p id="mediaLikes" class="photo__likes">${media.likes}</p>
-              <button class="like" aria-label="click to like"><i class="fas fa-heart portfolio__heart"></i></button>
+              <button class="like" aria-label="click to like"><i class="far fa-heart portfolio__heart"></i></button>
             </div>
           </div>`;
       photoArticle.className += "photo__card";
