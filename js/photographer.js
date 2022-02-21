@@ -2,7 +2,6 @@
 
 import Gallery from "./Gallery.js";
 import { ContactModal } from "./Contact.js";
-import { AddOrRemLikes } from "./Likes.js";
 export default class PhotographersPage {
   displayPhotographers(data) {
     const id = window.location.search.split("id=")[1];
