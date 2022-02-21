@@ -2,6 +2,7 @@
 
 import Gallery from "./Gallery.js";
 import { ContactModal } from "./Contact.js";
+import { AddOrRemLikes } from "./Likes.js";
 export default class PhotographersPage {
   displayPhotographers(data) {
     const id = window.location.search.split("id=")[1];
@@ -42,7 +43,7 @@ export default class PhotographersPage {
     //--------get all likes-------------
     //queryslectors & variables
     const likesAndPriceDiv = document.querySelector(".likesAndPrice");
-    const likeBtn = document.querySelectorAll(".like");
+    
     let likesAndPrice = "";
     let totalLikes = 0;
     let likeContainer = document.querySelectorAll(".photo__likes");
@@ -53,48 +54,34 @@ export default class PhotographersPage {
         totalLikes += parseInt(likeContainer[i].innerHTML);
       }
     };
-        
-    function likesCounter() {
+    function AddOrRemLikes() {
+      const likeBtn = document.querySelectorAll(".like");
       likeBtn.forEach((item) => {
         let total = document.querySelector(".total__likes");
-        let itemClass =[];
+        let photoLikes = item.previousElementSibling;
+        let icon = item.firstChild;
         item.addEventListener("click",(e) => {
-          if (e.target.classList.contains("portfolio__heart--liked")) {
-            e.target.classList.replace(
-              "portfolio__heart--liked",
-              "portfolio__heart"
-            );
-            e.target.classList.replace("fas", "far");
-            e.target.parentElement.previousElementSibling.innerHTML--;
+          if (icon.classList.contains("portfolio__heart--liked")) {
+            icon.classList.replace("portfolio__heart--liked","portfolio__heart");
+            icon.classList.replace("fas", "far");
+            photoLikes.innerHTML--;
             totalLikes--;
             total.innerHTML = parseInt(totalLikes);
           } else {
-            e.target.classList += "--liked";
-            e.target.classList.replace("far", "fas");
-            e.target.parentElement.previousElementSibling.innerHTML++;
+            icon.classList.replace("portfolio__heart", "portfolio__heart--liked") ;
+            icon.classList.replace("far", "fas");
+            photoLikes.innerHTML++;
             totalLikes++;
             total.innerHTML = parseInt(totalLikes);
           }
         });
-        // item.addEventListener("keydown", (e)=>{
-        //   if(e.code==="Enter"){
-        //     //console.log(item.children[0].classList);
-        //     itemClass.push(item.children[0].classList);
-        //     console.log(itemClass);
-        //     if(itemClass[2].includes("portfolio__heart")){
-        //       console.log("toto");
-        //     }
-        //   }
-        // })
-  
       });
     }
-    
     getAllLikes();
     //add inner HTML in div
     likesAndPrice = `<p class="total__likes">${totalLikes}</p> <span><i class="fas fa-heart total__likes--heart"></i></span><p class="price">${photographerId[0].price}€/jour</p>`;
     likesAndPriceDiv.innerHTML += likesAndPrice;
-    likesCounter();
+    AddOrRemLikes();
 
   }
 }
