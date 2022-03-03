@@ -12,13 +12,13 @@ export function showLightbox(title) {
   const slides = document.querySelector(".slides");
   const closeLibobxBtn = document.querySelector(".close-lightbox");
   const lightboxBtns = document.querySelectorAll(".lightbox-btn");
+  const left = document.getElementById("prev");
+  const right = document.getElementById("next");
   const gallerySection = document.querySelector(".gallery");
   const lightbox = [];
-  const lastImage = lightbox.length -1;
   let id = [];
-  let activeImage;
-  console.log(lastImage);
-
+  let slideHTML = "";
+  
   //CSS modification when lightbox is open
   lightboxContainer.classList.add("active");
   gallerySection.style.display = "none";
@@ -26,14 +26,12 @@ export function showLightbox(title) {
   idSection.style.display = "none";
   totalLikesDiv.style.display = "none";
   listbox.style.display = "none";
-
   images.forEach(function (element) {
     lightbox.push({ title: element.title, src: element.src });
   });
 
   id = lightbox.findIndex((element) => element.title == title);
   
-  let slideHTML = "";
   while (slides.firstChild) {
     slides.removeChild(slides.firstChild);
   }
@@ -46,7 +44,23 @@ export function showLightbox(title) {
     <p class="photo__title">${lightbox[id].title}</p>`;
   }
   slides.innerHTML += slideHTML;
-
+  
+  //initial button display
+  switch(id){
+    case 0 :
+      left.style.display = "none";
+      right.style.display = "block";
+      break;
+    case lightbox.length-1 :
+      right.style.display = "none";
+      left.style.display = "block";
+      break;
+    default :
+    left.style.display = "block";
+    right.style.display = "block";
+  }
+  
+  // transition to left slide
   const transitionSlidesLeft = () => {
     id--;
     while (slides.firstChild) {
@@ -59,9 +73,13 @@ export function showLightbox(title) {
       slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">
       <p class="photo__title">${lightbox[id].title}</p>`;
     }
-
     slides.innerHTML += slideHTML;
+    right.style.display = "block";
+    if(id===0){
+      left.style.display = "none";
+    }
   };
+   // transition to right slide
   const transitionSlidesRight = () => {
     id++;
     while (slides.firstChild) {
@@ -74,8 +92,11 @@ export function showLightbox(title) {
       slideHTML = `<img class="lightbox-photo" title="${lightbox[id].title}" src="${lightbox[id].src}">
       <p class="photo__title">${lightbox[id].title}</p>`;
     }
-
-    slides.innerHTML += slideHTML;
+    slides.innerHTML += slideHTML; 
+    left.style.display = "block";
+    if(id===lightbox.length-1){
+      right.style.display = "none";
+    }
   };
 
   const transitionSlidesHandler = (moveItem) => {
