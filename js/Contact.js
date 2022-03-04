@@ -20,8 +20,6 @@ function ContactModal(photographerId) {
   //functions 
     //get focus
     function addFocus() {
-      console.log(document.getElementById("prenom"));
-      //document.getElementById("focus").focus();
       form.focus();
       firstName.tabIndex=0;
       document.querySelectorAll(".photo").forEach((elt)=>{
