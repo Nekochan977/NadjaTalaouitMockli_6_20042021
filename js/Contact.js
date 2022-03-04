@@ -29,6 +29,16 @@ function ContactModal(photographerId) {
         elt.tabIndex=1;
       });
     }
+    function removeFocus() {
+      form.blur();
+      firstName.tabIndex=1;
+      document.querySelectorAll(".photo").forEach((elt)=>{
+        elt.tabIndex=0;
+      });
+      document.querySelectorAll(".like").forEach((elt)=>{
+        elt.tabIndex=0;
+      });
+    }
    //launch Modal form
   function launchModal() {
     addFocus();
@@ -39,6 +49,7 @@ function ContactModal(photographerId) {
   }
   //close Modal form
   function crossClose() {
+    removeFocus()
     modalBg.style.display = "none";
     modalBtn.style.display = "block";
   }
