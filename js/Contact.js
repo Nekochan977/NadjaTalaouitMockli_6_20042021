@@ -18,8 +18,22 @@ function ContactModal(photographerId) {
   const message = document.querySelector("#message");
   const messageDiv = document.querySelector("#message-div");
   //functions 
+    //get focus
+    function addFocus() {
+      console.log(document.getElementById("prenom"));
+      //document.getElementById("focus").focus();
+      form.focus();
+      firstName.tabIndex=0;
+      document.querySelectorAll(".photo").forEach((elt)=>{
+        elt.tabIndex=1;
+      });
+      document.querySelectorAll(".like").forEach((elt)=>{
+        elt.tabIndex=1;
+      });
+    }
    //launch Modal form
   function launchModal() {
+    addFocus();
     modalBg.style.display = "block";
     modalBtn.style.display = "none";
     let header = `${photographerId[0].name}</br> Contactez-moi`;
@@ -33,6 +47,7 @@ function ContactModal(photographerId) {
   // Event listeners
   modalBtn.addEventListener("click", launchModal);
   closeModal.addEventListener("click", crossClose);
+  
   // Form validation
   submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
