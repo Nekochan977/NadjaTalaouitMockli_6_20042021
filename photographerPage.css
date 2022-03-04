@@ -219,7 +219,7 @@ img {
   overflow: auto;
   background-color: rgba(26, 39, 156, 0.4);
 }
-.content     {
+.content {
   margin: 5% auto;
   width: 100%;
   max-width: 500px;
@@ -471,12 +471,17 @@ input[data-error]::after {
   .fa-chevron-down {
     margin-left: 0.5rem;
   }
+  /*** GALLERY PHOTOS ***/
+  .gallery__photo>.photo {
+    object-position: top;
+  }
   /*** LIGHTBOX ***/
   #lightbox.active{
     height: 100vh;
   }
   .slides > video {
     height: 50rem;
+    width: 56rem;
   }
   .slides {
     height: 100vh;
@@ -489,7 +494,7 @@ input[data-error]::after {
   }
   .lightbox-photo {
     border-radius: 5px;
-    width: 56rem;
+    width: 45rem;
     height: 64rem;
 }
 .close-lightbox, .lightbox-btn {
